@@ -1,0 +1,18 @@
+/*
+Theme Name: La oferta que quieres
+Theme URI: 
+Author: Luis Eduardo Tellez http://nogacreativos.com.
+Author URI: Luis Eduardo Tellez http://nogacreativos.com.
+Description: A responsive template for oferts colombia chec WordPress theme.
+Version: 1.0
+License: GNU General Public License v3 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: fullwidth, flexible-width, Bootstrap framework, All custom.
+Text Domain: laofertaquequieres
+*/
+@import url(css/bootstrap.css);
+@import url(css/CustomScrollbar.css);
+@import url(css/slider.css);
+@import url(css/animate.css);
+@import url(css/laoferta.css);
+@import url(css/main.css);
