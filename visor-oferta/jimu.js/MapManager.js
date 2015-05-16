@@ -30,10 +30,13 @@ define(['dojo/_base/declare',
   'esri/geometry/Point',
   'require',
   './utils',
-  './dijit/LoadingShelter'
+  './dijit/LoadingShelter',
+  'esri/geometry/webMercatorUtils',
+  'esri/tasks/GeometryService',
+  "esri/geometry/screenUtils"
 ], function(declare, lang, array, html, topic, on, aspect, keys, InfoWindow,
   PopupMobile, InfoTemplate, esriRequest, Extent, Point, require,
-  jimuUtils, LoadingShelter) {
+  jimuUtils, LoadingShelter,trasformacion,GeometryService,screenUtils) {
   /* global jimuConfig */
   var instance = null,
     clazz = declare(null, {
@@ -221,25 +224,12 @@ define(['dojo/_base/declare',
           var LayersCopia = [];
           this.map.LayersCopia = LayersCopia;
           this.resetInfoWindow(true);
-          topic.publish('mapLoaded', this.map);
-          var localizar = function(map, x, y){
-              var mapa = map
-              var x = x;
-              var y = y;
-              var geom = new esri.geometry.Point(x, y, new esri.SpatialReference({ wkid: 3857 }));
-              //mapa.centerAndZoom(geom, 17);
-              /*prueba*/
-              mapa.graphics.clear();
-              var symbol = new esri.symbol.SimpleMarkerSymbol().setStyle(esri.symbol.SimpleMarkerSymbol.STYLE_CIRCLE);
-              symbol.setColor(new dojo.Color([255, 255, 0, 0.75]));
-              var graphic = new esri.Graphic(geom, symbol);
-              mapa.graphics.add(graphic);
-            };
-          this.map.localizar = localizar;
+          topic.publish('mapLoaded', this.map);          
         };
 
         this.map.PRECategoria = PRECategoria;
         this.map.PRECategoria.map = this.map;
+		this.map.PRECategoria.MapManager = this;
         on(this.map, "mouse-drag-end", lang.hitch(this, this.mapDrag));
         on(this.map, "zoom-end", lang.hitch(this, this.mapDrag));
         //this.filtroCarga();
@@ -255,6 +245,7 @@ define(['dojo/_base/declare',
               isOperationalLayer: ""
             });
         this.map.PRECategoria.extent = this.map.extent;
+		on(this.map, "click", lang.hitch(this, this.onClickMapa));
       },
 
       _getWebsceneData: function(itemId) {
@@ -420,10 +411,137 @@ define(['dojo/_base/declare',
 
       enableWebMapPopup: function() {
         this.map.setInfoWindowOnClick(true);
-      },
+      },	
+	onClickMapa: function(evt){		
+		this.evt = evt;
+		var datosInfo = null;
+		console.log("X: "+ evt.mapPoint.x + " Y: "+evt.mapPoint.y);		
+		var p = new Point(evt.mapPoint.x, evt.mapPoint.y, this.map.spatialReference);
+		p = trasformacion.webMercatorToGeographic(p);	  
+		this.map.xclick = p.x;
+		this.map.yclick = p.y;
+		var capas = "CAP_06|;";
+		if(capas!=""){
+			var infoCapa = this.map.PRECategoria.ObtenerInfoCap(p,capas,this);
+			this.map.infoCapa = infoCapa;
+			this.MostrarInfoCapa(p,infoCapa,evt);			  
+			var a="";
+		}
+    },
+	ObtenerCapasInfo: function(){
+		var capas="";
+		for(var i=0;i<this.map.LayersCopia.length;i++){
+			var layer = this.map.LayersCopia[i];
+			if(this.ValidarEstadoCapa(layer)){
+				capas += layer.layerConfig.codigo+"|;";
+			}
+		}
+		return capas;
+	},
 
-    
+	ValidarEstadoCapa: function(layer){
+		if(layer.layerConfig.type!="wms"){
+			if(layer.visible==true){
+				return true;
+			}else{
+				return false;
+			}
+		}else if(layer.visibleLayers.length>0){
+				return true;
+		}else{
+			return false;
+		}
+	},
+		
+    MostrarInfoCapa: function(punto, datos, evt){
+        var serviciogeometrico = new GeometryService("http://tasks.arcgisonline.com/ArcGIS/rest/services/Geometry/GeometryServer");
+        this.map.graphics.clear();
+        var symbol = new esri.symbol.SimpleFillSymbol(esri.symbol.SimpleFillSymbol.STYLE_SOLID, new esri.symbol.SimpleLineSymbol(esri.symbol.Symbol.STYLE_DASHDOT, new dojo.Color([255, 255, 255]), 2), new dojo.Color([255, 255, 255, 0.5]));
+        var graphic = new esri.Graphic(punto, symbol);
+        var html = "";
+		var extent;
+        for (var i = 0; i < datos[0].Columnas.length; i++) {
+          if (datos[0].Columnas[i] != "d" && datos[0].Columnas[i]!="extent") {
+              html += datos[0].Columnas[i] + ":&nbsp;" + datos[0].Datos[i] + "<br/>";
+          }
+		  if(datos[0].Columnas[i]=="extent"){
+			extent = datos[0].Datos[i];
+		  }
+        }		
+        graphic.setInfoTemplate(new esri.InfoTemplate("Coordenadas", html));
 
+        this.map.infoWindow.setTitle("Información");
+        this.map.infoWindow.setContent(graphic.getContent());
+        this.map.infoWindow.show(evt.screenPoint, this.map.getInfoWindowAnchor(evt.screenPoint));
+		//this.AcercarA(punto,extent);		
+    },
+	
+	MostrarInfoCapaOver: function(punto, datos, p){
+        var serviciogeometrico = new GeometryService("http://tasks.arcgisonline.com/ArcGIS/rest/services/Geometry/GeometryServer");        
+        var symbol = new esri.symbol.SimpleFillSymbol(esri.symbol.SimpleFillSymbol.STYLE_SOLID, new esri.symbol.SimpleLineSymbol(esri.symbol.Symbol.STYLE_DASHDOT, new dojo.Color([255, 255, 255]), 2), new dojo.Color([255, 255, 255, 0.5]));
+        var graphic = new esri.Graphic(punto, symbol);
+        var html = "";
+		var extent;
+        for (var i = 0; i < datos[0].Columnas.length; i++) {
+          if (datos[0].Columnas[i] != "d" && datos[0].Columnas[i]!="extent") {
+              html += datos[0].Columnas[i] + ":&nbsp;" + datos[0].Datos[i] + "<br/>";
+          }
+		  if(datos[0].Columnas[i]=="extent"){
+			extent = datos[0].Datos[i];
+		  }
+        }		
+        graphic.setInfoTemplate(new esri.InfoTemplate("Coordenadas", html));
+
+        this.map.infoWindow.setTitle("Información");
+        this.map.infoWindow.setContent(graphic.getContent());
+        this.map.infoWindow.show(p, this.map.getInfoWindowAnchor(p));
+		//this.AcercarA(punto,extent);		
+    },
+	
+	AcercarA: function(punto,extent){
+		for(var i=0; i<this.map.LayersCopia.length;i++){
+			var fullExtent = this.map.LayersCopia[i].fullExtent;
+			fullExtent.spatialReference.wkid=4326;
+			extent = extent.replace(/\(/g, '');
+			extent = extent.replace(/\)/g, '');
+			var ext = extent.split(",");				
+			fullExtent.xmin = ext[2];
+			fullExtent.ymin = ext[3];
+			fullExtent.xmax = ext[0];
+			fullExtent.ymax = ext[1];
+			//this.map.centerAt(punto);
+			this.map.setExtent(fullExtent);
+			i = this.map.LayersCopia.length;
+		}	
+	},
+	InfoCapaOver:function(x,y){
+		var p = new esri.geometry.Point(x, y, new esri.SpatialReference({ wkid: 3857 }));
+		p = trasformacion.webMercatorToGeographic(p);	  	
+		var capas= "CAP_06|;"
+		var infoCapa = this.map.PRECategoria.ObtenerInfoCap(p,capas,null);
+		this.map.infoCapa = infoCapa;
+		
+		var evto = new Object();
+		var mapPoint = new Object();
+		evto.mapPoint  = {spatialReference: {wkid: 3857},type: "point",x: x,y: y};				
+		var screenPoint = screenUtils.toScreenPoint(this.map.extent, this.map.width, this.map.height, p);
+				
+		//this.map.onClick(evt);
+		this.MostrarInfoCapaOver(p,infoCapa,screenPoint);
+	},
+	localizar : function(map, x, y){
+		var mapa = map
+		var x = x;
+		var y = y;
+		var geom = new esri.geometry.Point(x, y, new esri.SpatialReference({ wkid: 3857 }));
+		//mapa.centerAndZoom(geom, 17);
+		/*prueba*/
+		mapa.graphics.clear();
+		var symbol = new esri.symbol.SimpleMarkerSymbol().setStyle(esri.symbol.SimpleMarkerSymbol.STYLE_CIRCLE);
+		symbol.setColor(new dojo.Color([255, 255, 0, 0.75]));
+		var graphic = new esri.Graphic(geom, symbol);
+		mapa.graphics.add(graphic);
+	}
     });
 
   clazz.getInstance = function(appConfig, mapDivId) {

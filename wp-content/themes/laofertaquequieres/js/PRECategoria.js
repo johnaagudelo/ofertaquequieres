@@ -229,8 +229,28 @@ PRECategoria.prototype.PintarCampa = function(campanas){
 
 PRECategoria.prototype.localizar = function(index, x, y){
     var campana = this.ArrayCampanas[index];
-    this.map.localizar(this.map, x, y);
-    //this.map.localizarMipyme(this.map, x, y);
+    //this.MapManager.localizar(this.map, x, y);    
+	this.MapManager.InfoCapaOver(x,y);	
+}
+
+
+PRECategoria.prototype.ObtenerInfoCap = function (punto, capas, widget) {    
+    var objeto = this;
+    var infoCapa;    
+    $.ajax({
+        type: 'POST',
+        url: 'http://www.soyempresariodigital.com/Geomarketing/FUNMapa/ConsultarInfoCapSinSession',
+        data: '{"x":"' + punto.x + '","y":"' + punto.y + '","capa":"' + capas + '","sistema":"SIS_40"}',        
+        //data: '{"capa":"' + objinfomapa.capactiva + '","coordenada":"' +punto +'"}',
+        dataType: "json",
+        async: false,
+        contentType: "application/json; charset=iso-8859-1",
+        success: function (data) {
+            infoCapa = data;
+            //obj.MostrarInfoCapa(punto, data);
+        }
+    });
+    return infoCapa;
 }
 
 

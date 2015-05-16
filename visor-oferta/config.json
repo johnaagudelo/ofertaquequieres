@@ -286,7 +286,7 @@
   "httpProxy": {
     "useProxy": true,
     "alwaysUseProxy": false,
-    "url": "http://localhost/DotNet/proxy.ashx",
+    "url": "http://www.sigmaingenieria.co/fwdesarrollo/proxy.ashx",
     "rules": []
   }
 }
