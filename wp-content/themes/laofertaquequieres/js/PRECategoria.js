@@ -112,21 +112,6 @@ PRECategoria.prototype.asignarEventos =  function(map) {
         }
     };
 
-    this.map.localizarMipyme = function(map, x, y){
-            var mapa = map
-            var x = x;
-            var y = y;
-            //x = Number(x.replace(",", "."));
-            //y = Number(y.replace(",", "."));
-            var geom = new esri.geometry.Point(x, y, new esri.SpatialReference({ wkid: 3857 }));
-            mapa.centerAndZoom(geom, 17);
-            /*prueba*/
-            mapa.graphics.clear();
-            var symbol = new esri.symbol.SimpleMarkerSymbol().setStyle(esri.symbol.SimpleMarkerSymbol.STYLE_DIAMOND);
-            symbol.setColor(new dojo.Color([255, 255, 0, 0.75]));
-            var graphic = new esri.Graphic(geom, symbol);
-            mapa.graphics.add(graphic);
-    };
 }
 
 //Consultamos las campañas de las pymes de los filtros y del extent
@@ -203,7 +188,7 @@ PRECategoria.prototype.PintarCampa = function(campanas){
                     }
                     
                     $("#mensaje").html("");
-                    tarjeta = '<div class="item col-lg-6 col-sm-6" onmouseover="localizar('+campa.index+','+campa.campana.sed_x+','+campa.campana.sed_y+')"><div class="image"><div class="icon"><img src="http://localhost:8080/ofertaquequieres/wp-content/themes/laofertaquequieres/images/icon-alimentos.png" alt=""></div><img class="img-promo" src="data:;base64,'+img64.mensaje+'" alt=""><div class="over icon-ver"></div></div><div class="info"><h2>'+campa.campana.cam_nombre+'</h2><p>'+descripcion+'</p><a href="http://localhost:8080/ofertaquequieres/negocio/" class="icon-empresa">Ver Empresa</a><div class="price">$ 8.500</div><div class="col-lg-8 col-md-8 col-xs-8"><img class="logoMarca" src="http://localhost:8080/oferta/wp-content/themes/laofertaquequieres/images/logo.png" alt=""></div><div class="col-lg-4 col-md-4 col-xs-4"><a class="icon-facebook-circled" href=""></a><a class="icon-twitter-circled" href=""></a></div></div></div>';
+                    tarjeta = '<div class="item col-lg-6 col-sm-6" onmouseover="localizar('+campa.index+','+campa.campana.sed_x+','+campa.campana.sed_y+')"><div class="image"><div class="icon"><img src="http://localhost:8080/ofertaquequieres/wp-content/themes/laofertaquequieres/images/icon-alimentos.png" alt=""></div><img class="img-promo" src="data:;base64,'+img64.mensaje+'" alt=""><div class="over icon-ver"></div></div><div class="info"><h2>'+campa.campana.cam_nombre+'</h2><p>'+descripcion+'</p><a href="http://localhost:8080/ofertaquequieres/negocio/?mipyme='+campa.campana.pym_codigo+'&coor='+campa.campana.sed_x+','+campa.campana.sed_y+'&cat='+this.tipo+'" class="icon-empresa">Ver Empresa</a><div class="price">$ 8.500</div><div class="col-lg-8 col-md-8 col-xs-8"><img class="logoMarca" src="http://localhost:8080/oferta/wp-content/themes/laofertaquequieres/images/logo.png" alt=""></div><div class="col-lg-4 col-md-4 col-xs-4"><a class="icon-facebook-circled" href=""></a><a class="icon-twitter-circled" href=""></a></div></div></div>';
                      $("#contCompa").append(tarjeta);
                      }
                 
