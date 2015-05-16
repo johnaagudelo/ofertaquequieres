@@ -72,8 +72,14 @@
   content: '\e80a';
 }
 /* '' */
-.map iframe{
+.categoria{
   float: left;
   width: 100%;
   height: 500px;
+}
+
+.negocio{
+  float: left;
+  width: 100%;
+  height: 380px;
 }

@@ -117,10 +117,10 @@
         </div>  
     </div>
     <div class="row results">
-        <div class="map col-lg-6 col-md-5" id="Visor-content">
-            <iframe id="iframe-visor" src="http://localhost:8080/ofertaquequieres/visor-oferta/" frameborder="0"></iframe>
-            <a class="ver">Ver resultados</a>
-        </div>
+      <div class="map col-lg-6 col-md-5" id="Visor-content">
+         <iframe id="iframe-visor" class="categoria" src="http://localhost:8080/ofertaquequieres/visor-oferta/" frameborder="0"></iframe>
+        <a class="ver">Ver resultados</a>
+      </div>
         <div class="contentItems col-lg-6 col-md-7" >
             <a class="volver">Volver a mapa</a>
             <div id="contCompa">
