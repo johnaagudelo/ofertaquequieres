@@ -456,23 +456,33 @@ define(['dojo/_base/declare',
     MostrarInfoCapa: function(punto, datos, evt){
         var serviciogeometrico = new GeometryService("http://tasks.arcgisonline.com/ArcGIS/rest/services/Geometry/GeometryServer");
         this.map.graphics.clear();
-        var symbol = new esri.symbol.SimpleFillSymbol(esri.symbol.SimpleFillSymbol.STYLE_SOLID, new esri.symbol.SimpleLineSymbol(esri.symbol.Symbol.STYLE_DASHDOT, new dojo.Color([255, 255, 255]), 2), new dojo.Color([255, 255, 255, 0.5]));
+        var symbol = new esri.symbol.SimpleFillSymbol(esri.symbol.SimpleFillSymbol.STYLE_SOLID, new esri.symbol.SimpleLineSymbol(esri.symbol.Symbol.STYLE_DASHDOT, new dojo.Color([255, 0, 0]), 2), new dojo.Color([255, 255, 0, 0.5]));
         var graphic = new esri.Graphic(punto, symbol);
         var html = "";
 		var extent;
-        for (var i = 0; i < datos[0].Columnas.length; i++) {
-          if (datos[0].Columnas[i] != "d" && datos[0].Columnas[i]!="extent") {
-              html += datos[0].Columnas[i] + ":&nbsp;" + datos[0].Datos[i] + "<br/>";
-          }
-		  if(datos[0].Columnas[i]=="extent"){
-			extent = datos[0].Datos[i];
-		  }
-        }		
-        graphic.setInfoTemplate(new esri.InfoTemplate("Coordenadas", html));
+		if(datos.length>0){
+			for (var i = 0; i < datos[0].Columnas.length; i++) {
+			  if (datos[0].Columnas[i] != "d" && datos[0].Columnas[i]!="extent" && datos[0].Columnas[i]!="imagenes" && datos[0].Columnas[i]!="infojson") {
+				  html += datos[0].Columnas[i] + ":&nbsp;" + datos[0].Datos[i] + "<br/>";
+			  }
+			  if(datos[0].Columnas[i]=="extent"){
+				extent = datos[0].Datos[i];
+			  }			  			  
+			}		
+			graphic.setInfoTemplate(new esri.InfoTemplate("Coordenadas", html));
 
-        this.map.infoWindow.setTitle("Información");
-        this.map.infoWindow.setContent(graphic.getContent());
-        this.map.infoWindow.show(evt.screenPoint, this.map.getInfoWindowAnchor(evt.screenPoint));
+			this.map.infoWindow.setTitle("Información");
+			this.map.infoWindow.setContent(graphic.getContent());
+			this.map.infoWindow.show(evt.screenPoint, this.map.getInfoWindowAnchor(evt.screenPoint));
+			this.AcercarA(punto,extent);
+		}else{
+			html += "No hay información<br/>";
+			graphic.setInfoTemplate(new esri.InfoTemplate("Coordenadas", html));
+
+			this.map.infoWindow.setTitle("Información");
+			this.map.infoWindow.setContent(graphic.getContent());
+			this.map.infoWindow.show(evt.screenPoint, this.map.getInfoWindowAnchor(evt.screenPoint));
+		}
 		//this.AcercarA(punto,extent);		
     },
 	
