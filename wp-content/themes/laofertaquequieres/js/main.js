@@ -26,7 +26,7 @@ $( document ).ready(function() {
         animate(this, 'bounceIn');
         return false;
     });
-    $(".item .image .over").mouseover(function() {
+    $("#contCompa .item .image .over").mouseover(function() {
         animate(this, 'flipInX');
         return false;
     });
