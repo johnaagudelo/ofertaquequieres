@@ -478,6 +478,7 @@ define(['dojo/_base/declare',
 	
 	MostrarInfoCapaOver: function(punto, datos, p){
         var serviciogeometrico = new GeometryService("http://tasks.arcgisonline.com/ArcGIS/rest/services/Geometry/GeometryServer");        
+		this.map.graphics.clear();
         var symbol = new esri.symbol.SimpleFillSymbol(esri.symbol.SimpleFillSymbol.STYLE_SOLID, new esri.symbol.SimpleLineSymbol(esri.symbol.Symbol.STYLE_DASHDOT, new dojo.Color([255, 255, 255]), 2), new dojo.Color([255, 255, 255, 0.5]));
         var graphic = new esri.Graphic(punto, symbol);
         var html = "";
@@ -494,39 +495,16 @@ define(['dojo/_base/declare',
 
         this.map.infoWindow.setTitle("Información");
         this.map.infoWindow.setContent(graphic.getContent());
-        this.map.infoWindow.show(p, this.map.getInfoWindowAnchor(p));
-		//this.AcercarA(punto,extent);		
+        this.map.infoWindow.show(p, this.map.getInfoWindowAnchor(p));		
     },
-	
-	AcercarA: function(punto,extent){
-		for(var i=0; i<this.map.LayersCopia.length;i++){
-			var fullExtent = this.map.LayersCopia[i].fullExtent;
-			fullExtent.spatialReference.wkid=4326;
-			extent = extent.replace(/\(/g, '');
-			extent = extent.replace(/\)/g, '');
-			var ext = extent.split(",");				
-			fullExtent.xmin = ext[2];
-			fullExtent.ymin = ext[3];
-			fullExtent.xmax = ext[0];
-			fullExtent.ymax = ext[1];
-			//this.map.centerAt(punto);
-			this.map.setExtent(fullExtent);
-			i = this.map.LayersCopia.length;
-		}	
-	},
 	InfoCapaOver:function(x,y){
 		var p = new esri.geometry.Point(x, y, new esri.SpatialReference({ wkid: 3857 }));
 		p = trasformacion.webMercatorToGeographic(p);	  	
 		var capas= "CAP_06|;"
 		var infoCapa = this.map.PRECategoria.ObtenerInfoCap(p,capas,null);
-		this.map.infoCapa = infoCapa;
-		
-		var evto = new Object();
-		var mapPoint = new Object();
-		evto.mapPoint  = {spatialReference: {wkid: 3857},type: "point",x: x,y: y};				
+		this.map.infoCapa = infoCapa;		
 		var screenPoint = screenUtils.toScreenPoint(this.map.extent, this.map.width, this.map.height, p);
-				
-		//this.map.onClick(evt);
+					
 		this.MostrarInfoCapaOver(p,infoCapa,screenPoint);
 	},
 	localizar : function(map, x, y){
