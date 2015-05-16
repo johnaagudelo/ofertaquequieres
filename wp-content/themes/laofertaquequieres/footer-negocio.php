@@ -34,9 +34,13 @@
         <script>
             var categorias = null;
                 function load(pyme, coor){
+					var coordenadas = coor.split(",");
                     categorias = new PRECategoria();
                     categorias.mipymesTipo = pyme;  
                     categorias.cargarCategoriaVisor();
+					categorias.negocio=true;
+					categorias.xNegocio=coordenadas[0];
+					categorias.yNegocio=coordenadas[1];
                     //categorias.asignarEventosVisor();
                 }
                 $(document).ready(function(){

@@ -230,14 +230,24 @@ define(['dojo/_base/declare',
         this.map.PRECategoria = PRECategoria;
         this.map.PRECategoria.map = this.map;
 		this.map.PRECategoria.MapManager = this;
-        on(this.map, "mouse-drag-end", lang.hitch(this, this.mapDrag));
-        on(this.map, "zoom-end", lang.hitch(this, this.mapDrag));
+		if(!this.map.PRECategoria.negocio){
+			on(this.map, "mouse-drag-end", lang.hitch(this, this.mapDrag));
+			on(this.map, "zoom-end", lang.hitch(this, this.mapDrag));
+		}else{
+			this.localizar(this.map,this.map.PRECategoria.xNegocio,this.map.PRECategoria.yNegocio);
+		}
         //this.filtroCarga();
         var filtro = this.map.PRECategoria.mipymesTipo.mensaje;
+		var url;
+		if(filtro!=null && filtro != undefined && filtro!=""){
+		 url = "http://soyempresariodigital.com:9090/lib/funciones/FUNClienteWMS.php?mapa=C:/ms4w/Apache/htdocs/chec/map/WMSTIPONEGOCIO.map&filtro=t_mipyme.pym_codigo in ("+filtro+")"
+		}else{
+		 url = "http://soyempresariodigital.com:9090/lib/funciones/FUNClienteWMS.php?mapa=C:/ms4w/Apache/htdocs/chec/map/WMSTIPONEGOCIO.map&filtro=t_mipyme.pym_codigo in ('"+this.map.PRECategoria.mipymesTipo+"')"
+		}
         this.createLayer(this.map,"2D",
             {
               label: "Sede",
-              url:"http://soyempresariodigital.com:9090/lib/funciones/FUNClienteWMS.php?mapa=C:/ms4w/Apache/htdocs/chec/map/WMSTIPONEGOCIO.map&filtro=t_mipyme.pym_codigo in ("+filtro+")",
+              url:url,
               type: "wms",
               icon: "",
               infoTemplate: "",
@@ -523,12 +533,13 @@ define(['dojo/_base/declare',
 		var y = y;
 		var geom = new esri.geometry.Point(x, y, new esri.SpatialReference({ wkid: 3857 }));
 		//mapa.centerAndZoom(geom, 17);
+		this.map.centerAt(geom);
 		/*prueba*/
-		mapa.graphics.clear();
+		/*mapa.graphics.clear();
 		var symbol = new esri.symbol.SimpleMarkerSymbol().setStyle(esri.symbol.SimpleMarkerSymbol.STYLE_CIRCLE);
 		symbol.setColor(new dojo.Color([255, 255, 0, 0.75]));
 		var graphic = new esri.Graphic(geom, symbol);
-		mapa.graphics.add(graphic);
+		mapa.graphics.add(graphic);*/
 	}
     });
 

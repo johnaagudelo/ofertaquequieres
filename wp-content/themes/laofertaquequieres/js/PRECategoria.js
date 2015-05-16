@@ -8,6 +8,9 @@ function PRECategoria() {
     this.capa = "http://soyempresariodigital.com:9090/lib/funciones/FUNClienteWMS.php?mapa=C:/ms4w/Apache/htdocs/chec/map/WMSTIPONEGOCIO.map";
     this.extent = "";
     ArrayCampanas = "";
+	this.negocio=false;
+	this.xNegocio;
+	this.yNegocio;
 }
 
  //Asignamos PRECategoria al visor
