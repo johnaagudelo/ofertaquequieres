@@ -101,7 +101,8 @@
         "label": "Marcador",
         "version": "1.2",
         "uri": "widgets/Bookmark/Widget",
-        "config": "configs/Bookmark/config_Marcador.json"
+        "config": "configs/Bookmark/config_Marcador.json",
+		"visible":false
       },
       {
         "position": {
@@ -117,7 +118,8 @@
         "label": "Medición",
         "version": "1.2",
         "uri": "widgets/Measurement/Widget",
-        "config": "configs/Measurement/config_Medición.json"
+        "config": "configs/Measurement/config_Medición.json",
+		"visible":false
       },
       {
         "uri": "widgets/OverviewMap/Widget",
@@ -129,7 +131,8 @@
         "id": "widgets/OverviewMap/Widget_8",
         "name": "OverviewMap",
         "label": "Mapa de vista general",
-        "positionRelativeTo": "map"
+        "positionRelativeTo": "map",
+		"visible":false
       },
       {
         "uri": "widgets/HomeButton/Widget",
@@ -162,6 +165,7 @@
         "id": "widgets/AttributeTable/Widget_11",
         "name": "AttributeTable",
         "label": "Tabla de atributos",
+		"visible":false,
         "position": {
           "left": 0,
           "top": 0
@@ -253,7 +257,8 @@
         "id": "widgets/Legend/Widget_15",
         "name": "Legend",
         "label": "Leyenda",
-        "index": 0
+        "index": 0,
+		"visible":false
       },
       {
         "uri": "widgets/LayerList/Widget",
@@ -269,7 +274,9 @@
         "id": "widgets/WidgetA/Widget_17",
         "name": "A",
         "label": "A",
-        "index": 2
+        "index": 2,
+		"visible":false
+		
       },
       {
         "uri": "widgets/WidgetB/Widget",
@@ -277,7 +284,8 @@
         "id": "widgets/WidgetB/Widget_18",
         "name": "B",
         "label": "B",
-        "index": 3
+        "index": 3,
+		"visible":false
       }
     ]
   },
