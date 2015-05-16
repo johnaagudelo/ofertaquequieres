@@ -4,7 +4,7 @@
 Template Name: Categoria
 */
 ?>
-<body class="alimentos" onload="load('Alimentos');">
+<body class="muebles" onload="load('Maderas y Muebles');">
         <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
@@ -12,34 +12,34 @@ Template Name: Categoria
       <div class="row">
         <div class="boderTop"></div>
         <a class="navbar-brand col-lg-2 col-md-3 col-xs-4 col-sm-3" href="<?php echo home_url()?>"><img src="<?php print IMAGES;?>/logo.png" alt="<?php bloginfo('name') ?> | <?php bloginfo('description') ?>"></a>
-        <div class="texSmartphone visible-xs-*">Alimentos</div>
+        <div class="texSmartphone visible-xs-*">Muebles</div>
         <div class="slider">
 
           <ul class="hidden-xs">
             <li>
               <div class="container">
-                <h1>Alimentos</h1>
+                <h1>Muebles</h1>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut.</p>
                 <div class="image">
-                  <img src="<?php print IMAGES;?>/imagen_slide1.png" alt="">
+                  <img src="<?php print IMAGES;?>/imagen_slide_muebles.png" alt="">
                 </div>
               </div>
             </li>
             <li>
               <div class="container">
-                <h1>Alimentos</h1>
+                <h1>Muebles</h1>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut.</p>
                 <div class="image">
-                  <img src="<?php print IMAGES;?>/imagen_slide1.png" alt="">
+                  <img src="<?php print IMAGES;?>/imagen_slide_muebles.png" alt="">
                 </div>
               </div>
             </li>
             <li>
               <div class="container">
-                <h1>Alimentos</h1>
+                <h1>Muebles</h1>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut.</p>
                 <div class="image">
-                  <img src="<?php print IMAGES;?>/imagen_slide1.png" alt="">
+                  <img src="<?php print IMAGES;?>/imagen_slide_muebles.png" alt="">
                 </div>
               </div>
             </li>
@@ -49,7 +49,7 @@ Template Name: Categoria
             <li></li>
             <li></li>
           </ol>
-          <img src="<?php print IMAGES;?>/bg_alimentos.jpg" alt="" class="imgSlider">
+          <img src="<?php print IMAGES;?>/bg_muebles.jpg" alt="" class="imgSlider">
           <div class="scrollbarContainer"></div>
         </div>
         <div class="col-lg-4 col-md-4 col-xs-12 col-sm-8 search">
@@ -85,7 +85,7 @@ Template Name: Categoria
         <div class="categories">
           <p class="instruction">Clic en la categoría para iniciar tu búsqueda</p>
           <div class="container">
-            <a href="http://localhost:8080/ofertaquequieres/alimentos/" class="category"><img src="<?php print IMAGES;?>/icon-alimentos.png" alt=""><br><span>ALIMENTOS</span></a>
+           <a href="http://localhost:8080/ofertaquequieres/alimentos/" class="category"><img src="<?php print IMAGES;?>/icon-alimentos.png" alt=""><br><span>ALIMENTOS</span></a>
             <a href="http://localhost:8080/ofertaquequieres/confeccion/" class="category"><img src="<?php print IMAGES;?>/icon-confeccion.png" alt=""><br><span>CONFECCIÓN</span></a>
             <a href="http://localhost:8080/ofertaquequieres/cuero-y-calzado/" class="category"><img src="<?php print IMAGES;?>/icon-cueroycalzado.png" alt=""><br><span>CUERO Y CALZADO</span></a>
             <a href="http://localhost:8080/ofertaquequieres/muebles/" class="category"><img src="<?php print IMAGES;?>/icon-muebles.png" alt=""><br><span>MUEBLES</span></a>
@@ -119,7 +119,7 @@ Template Name: Categoria
         <div id="contCompa">
             <div class="item col-lg-6 col-sm-6">
             <div class="image">
-              <div class="icon"><img src="<?php print IMAGES;?>/icon-alimentos.png" alt=""></div>
+              <div class="icon"><img src="<?php print IMAGES;?>/icon-muebles.png" alt=""></div>
               <img class="img-promo" src="<?php print IMAGES;?>/img_promo.jpg" alt="">
               <div class="over icon-ver"></div>
             </div>
@@ -142,7 +142,7 @@ Template Name: Categoria
         <div class="detail col-lg-12 col-md-12 col-xs-12">
           <div class="infoItem col-lg-3 col-md-3 col-xs-12 col-sm-4">
             <div class="infoEmpresa">
-              <img src="<?php print IMAGES;?>/icon-alimentos.png" alt="" class="icon">
+              <img src="<?php print IMAGES;?>/icon-muebles.png" alt="" class="icon">
               <strong>Incio de oferta</strong>
               2015-04-24 - 12:00m
               <strong>Fin de oferta</strong>

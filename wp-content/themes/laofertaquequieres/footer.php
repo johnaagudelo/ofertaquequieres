@@ -33,9 +33,9 @@
     <script src="<?php print JS;?>/PRECategoria.js"></script>
         <script>
             var categorias = null;
-                function load(){
+                function load(categoria){
                     categorias = new PRECategoria();
-                    categorias.tipo = "Alimentos";  
+                    categorias.tipo = categoria;  
                     categorias.consultarMipymesCategoria();
                     categorias.cargarCategoriaVisor();
                     //categorias.asignarEventosVisor();
