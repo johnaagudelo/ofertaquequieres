@@ -34,14 +34,14 @@
         <script>
             var categorias = null;
                 function load(pyme, coor){
-					var coordenadas = coor.split(",");
+					          var coordenadas = coor.split(",");
                     categorias = new PRECategoria();
                     categorias.mipymesTipo = pyme;  
                     categorias.cargarCategoriaVisor();
-					categorias.negocio=true;
-					categorias.xNegocio=coordenadas[0];
-					categorias.yNegocio=coordenadas[1];
-                    //categorias.asignarEventosVisor();
+          					categorias.negocio=true;
+          					categorias.xNegocio=coordenadas[0];
+          					categorias.yNegocio=coordenadas[1];
+                    categorias.informacionMipyme(pyme);
                 }
                 $(document).ready(function(){
                     $("#filtros li").click(function(){
@@ -52,9 +52,6 @@
                          categorias.mostrarExtent();
                      });
                 });
-                function localizar(index, x, y){
-                    categorias.localizar(index, x, y);
-                }
         </script>
 
     </body>
