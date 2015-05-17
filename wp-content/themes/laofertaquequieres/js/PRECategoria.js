@@ -216,8 +216,7 @@ PRECategoria.prototype.PintarCampa = function(campanas){
     
 }
 
-PRECategoria.prototype.localizar = function(index, x, y){
-    var campana = this.ArrayCampanas[index];
+PRECategoria.prototype.localizar = function(x, y){    
     //this.MapManager.localizar(this.map, x, y);    
 	this.MapManager.InfoCapaOver(x,y);	
 }

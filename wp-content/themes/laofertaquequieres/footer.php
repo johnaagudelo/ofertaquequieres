@@ -50,7 +50,7 @@
                      });
                 });
                 function localizar(index, x, y){
-                    categorias.localizar(index, x, y);
+                    categorias.localizar(x, y);
                 }
         </script>
 

@@ -235,6 +235,7 @@ define(['dojo/_base/declare',
 			on(this.map, "zoom-end", lang.hitch(this, this.mapDrag));
 		}else{
 			this.localizar(this.map,this.map.PRECategoria.xNegocio,this.map.PRECategoria.yNegocio);
+			this.map.PRECategoria.localizar(this.map.PRECategoria.xNegocio,this.map.PRECategoria.yNegocio);
 		}
         //this.filtroCarga();
         var filtro = this.map.PRECategoria.mipymesTipo.mensaje;
