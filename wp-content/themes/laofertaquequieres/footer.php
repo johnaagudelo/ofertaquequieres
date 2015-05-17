@@ -49,7 +49,7 @@
                          categorias.mostrarExtent();
                      });
                 });
-                function localizar(index, x, y){
+                function localizar(x, y){
                     categorias.localizar(x, y);
                 }
         </script>

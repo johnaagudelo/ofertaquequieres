@@ -43,7 +43,7 @@
           					categorias.yNegocio=coordenadas[1];
                     categorias.informacionMipyme(pyme);
                 }
-                $(document).ready(function(){
+                /*$(document).ready(function(){
                     $("#filtros li").click(function(){
                          var tipoCampa = $(this).attr("value");
                          $("#filtros li").removeClass("active");    
@@ -51,7 +51,7 @@
                          categorias.tipcam = tipoCampa;
                          categorias.mostrarExtent();
                      });
-                });
+                });*/
         </script>
 
     </body>

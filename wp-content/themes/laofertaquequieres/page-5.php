@@ -104,14 +104,14 @@
                 </div>
             </div>
             <div class="collapse navbar-collapse navbar-fixed-top filters" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav container">
-                    <li class="active"><a href="">Todos</a></li>
-                    <li><a href="">Ofertas</a></li>
-                    <li><a href="">Promociones</a></li>
-                    <li><a href="">Descuentos</a></li>
-                    <li><a href="">Eventos</a></li>
-                    <li><a href="">Casos de Exito</a></li>
-                    <li><a href="">Información Especial</a></li> 
+                <ul class="nav navbar-nav container" id="filtros">
+                        <li class="active" value=""><a >Todos</a></li>
+                        <li value="Oferta"><a>Ofertas</a></li>
+                        <li value="Promoción"><a >Promociones</a></li>
+                        <li value="Descuento"><a >Descuentos</a></li>
+                        <li value="Evento"><a>Eventos</a></li>
+                        <li value="Caso Exito"><a >Casos de Exito</a></li>
+                        <li value="Información Especial"><a >Información Especial</a></li> 
                 </ul>
             </div>
         </div>  
