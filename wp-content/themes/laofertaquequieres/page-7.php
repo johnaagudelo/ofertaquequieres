@@ -66,7 +66,7 @@ Template Name: Empresa
     </div>
     <div class="contentMultimedia">
       <div class="container">
-        <div class="col-xs-8 col-lg-6 col-md-6 col-sm-6">
+        <div class="col-xs-8 col-lg-5 col-md-6 col-sm-6">
           <div class="sliderEmpresa">
             <ul>
               <li><img src="<?php print IMAGES;?>/img1_sliderEmpresa.jpg" alt=""></li>
@@ -77,7 +77,7 @@ Template Name: Empresa
             <div class = 'nextButton'></div>
           </div>
         </div>
-        <div class="col-lg-6 col-md-8 col-sm-6">
+        <div class="col-lg-7 col-md-6 col-sm-6">
           <h2>Nuestras sedes</h2>
           <div class="map" id="Visor-content">
             <iframe id="iframe-visor" class="negocio" src="http://localhost:8080/ofertaquequieres/visor-oferta/" frameborder="0"></iframe>
