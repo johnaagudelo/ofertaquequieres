@@ -242,6 +242,28 @@ PRECategoria.prototype.ObtenerInfoCap = function (punto, capas, widget) {
     return infoCapa;
 }
 
+PRECategoria.prototype.informacionMipyme = function (codigo) {    
+   var infomipyme = null;
+   var parametros = {
+        "sistema": "SIS_40",
+        "codmipyme": codigo 
+    };
+    console.log(parametros);
+    $.ajax({
+        type: 'POST',
+        url: 'http://www.soyempresariodigital.com/Geomarketing/FUNOferta/ConsultarMipyme',
+        data: parametros,
+        dataType: "json",
+        async: false,
+        success:function(data) {
+            infomipyme = data;
+            $('#nomest').html(infomipyme.mensaje[0].pym_nomest);
+            $('#descrip').html(infomipyme.mensaje[0].pym_descri);
+            $('#infcon').html(infomipyme.mensaje[0].pym_nopeco+"<br>Email: "+infomipyme.mensaje[0].pym_email +"<br>Celular:"+infomipyme.mensaje[0].pym_celula);
+        }
+    });
+}
+
 
 
 

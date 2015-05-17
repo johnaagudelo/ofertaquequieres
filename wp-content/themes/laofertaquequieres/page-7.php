@@ -61,7 +61,7 @@ Template Name: Empresa
     <div class="title">
       <div class="container">
         <span>¡Bienvenido a...!</span>
-        <h1>La hamburgueseria</h1>
+        <h1 id="nomest"></h1>
       </div>
     </div>
     <div class="contentMultimedia">
@@ -77,7 +77,7 @@ Template Name: Empresa
             <div class = 'nextButton'></div>
           </div>
         </div>
-        <div class="col-lg-6 col-md-6 col-sm-6">
+        <div class="col-lg-6 col-md-8 col-sm-6">
           <h2>Nuestras sedes</h2>
           <div class="map" id="Visor-content">
             <iframe id="iframe-visor" class="negocio" src="http://localhost:8080/ofertaquequieres/visor-oferta/" frameborder="0"></iframe>
@@ -89,10 +89,10 @@ Template Name: Empresa
       <div class="container">
         <div class="col-lg-9 col-xs-12 col-md-9 col-sm-9">
           <span class="location">Manizales, Caldas, Colombia</span>
-          <h3>Servicios</h3>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-          </p>
+          <h3>Descripción.</h3>
+          <p id="descrip"></p>
+          <h3>Información de Contacto</h3>
+          <p id="infcon"></p>
         </div>
         <div class="col-lg-3 col-xs-12 col-md-3 col-sm-3">
           <strong>Redes Sociales</strong><br>
