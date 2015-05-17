@@ -534,6 +534,7 @@ define(['dojo/_base/declare',
 		var geom = new esri.geometry.Point(x, y, new esri.SpatialReference({ wkid: 3857 }));
 		//mapa.centerAndZoom(geom, 17);
 		this.map.centerAt(geom);
+		this.map.setLevel(13);
 		/*prueba*/
 		/*mapa.graphics.clear();
 		var symbol = new esri.symbol.SimpleMarkerSymbol().setStyle(esri.symbol.SimpleMarkerSymbol.STYLE_CIRCLE);
