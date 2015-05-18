@@ -207,7 +207,7 @@ PRECategoria.prototype.ConsultarCamp = function(mipymes){
                
             }
         });
-        this.ArrayCampanas = datos.mensaje;
+        this.ArrayCampanas = campanas.mensaje;
     }else{
         $("#result").html("No se encontraron publicaciones: "+this.tipcam);
         $("#contCompa").html('<img class="logo-item" src="http://localhost:8080/ofertaquequieres/wp-content/themes/laofertaquequieres/images/logo.png"></img>');
