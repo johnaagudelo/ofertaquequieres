@@ -75,11 +75,36 @@
 .categoria{
   float: left;
   width: 100%;
-  height: 500px;
+  height: 650px;
 }
 
 .negocio{
   float: left;
   width: 100%;
   height: 380px;
+}
+
+.buscardor{
+  margin-bottom: 10px;
+}
+
+.resultados{
+  background-color: rgba(0, 0, 0, 0.4);
+  height: 35px;
+  margin-left: 0px;
+  color: #fff;
+  padding: 10px 8px;
+  font-weight: 10;
+}
+
+.logo-item{
+  width: 80%;
+  display: block;
+  margin: 0 auto;
+  margin-top: 30%;
+  opacity: 0.5;
+}
+.cant-pub{
+  font-weight: bold;
+  font-size: 1.1em;
 }

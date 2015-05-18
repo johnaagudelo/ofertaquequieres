@@ -46,10 +46,17 @@
                          $("#filtros li").removeClass("active");    
                          $(this).addClass("active");
                          categorias.tipcam = tipoCampa;
+                         categorias.palabraClave = "";
+                         $("#palabra-clave").val("");
                          categorias.mostrarExtent();
                      });
+                    $("#buscar").click(function(){
+                        var palabra = $("#palabra-clave").val();
+                         categorias.palabraClave = palabra;
+                         categorias.mostrarExtent();
+                    });
                 });
-                function localizar(index, x, y){
+                function localizar(x, y){
                     categorias.localizar(x, y);
                 }
         </script>

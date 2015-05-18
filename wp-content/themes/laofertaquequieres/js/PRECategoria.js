@@ -119,43 +119,6 @@ PRECategoria.prototype.asignarEventos = function(map) {
 }
 
 //Consultamos las campañas de las pymes de los filtros y del extent
-PRECategoria.prototype.ConsultarCamp = function(mipymes) {
-    if (mipymes != "") {
-        var datos;
-        var condicion = "t_campana.pym_codigo = t_mipyme.pym_codigo and t_mipyme.pym_codigo = tg_sede.pym_codigo and t_mipyme.pym_codigo in(" + mipymes + ")";
-        if (this.tipcam != "") {
-            condicion = condicion + "and cam_tipo = '" + this.tipcam + "'";
-        }
-        if (this.palabraClave != "") {
-            condicion = condicion + " and (cam_nombre ilike '%" + this.palabraClave + "%' or cam_descri ilike '%" + this.palabraClave + "%')";
-        }
-        var parametros = {
-            "sistema": "SIS_40",
-            "tabla": "t_campana, t_mipyme, tg_sede",
-            "campos": "cam_codigo, t_mipyme.pym_codigo, cam_nombre, cam_descri, cam_fehoin, cam_fehofi, cam_tipo, t_campana.archivo_oid, t_campana.mime, t_campana.size, t_campana.archivo_nombre, cam_tercon, cam_pubobj, cam_costo, pym_pgfbid, pym_pertwi, x(st_transform(geom,3857)) as sed_latitu, y(st_transform(geom,3857)) as sed_lonlat",
-            "condicion": condicion,
-            "modificador": "order by cam_fehoin"
-        };
-        console.log(parametros);
-        $.ajax({
-            type: 'POST',
-            url: 'http://www.soyempresariodigital.com/Geomarketing/FUNOferta/ConsultarCampanas',
-            data: parametros,
-            dataType: "json",
-            async: false,
-            success: function(data) {
-                datos = data;
-                console.log(datos.mensaje);
-            }
-        });
-        this.PintarCampa(datos);
-        ArrayCampanas = datos.mensaje;
-    } else {
-        $("#contCompa").html("No se Encontro ninguna " + this.tipcam);
-    }
-
-
-}
 
 //Pintamos las tarjetas de las campañas de las pymes
 PRECategoria.prototype.PintarCampa = function(campanas) {
