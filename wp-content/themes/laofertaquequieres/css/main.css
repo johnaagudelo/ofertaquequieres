@@ -269,6 +269,12 @@
 .item .image .img-promo {
   width: 100%;
 }
+.item .image .carga-imagen {
+    height: 50%;
+    position: absolute;
+    left: 35%;
+    top:30%;
+  }
 .item .image .over {
   background: rgba(0, 0, 0, 0.8);
   width: 100%;
