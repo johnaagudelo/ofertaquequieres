@@ -4,7 +4,7 @@
   Template Name: Categoria
  */
 ?>
-<body class="confeccion" onload="load('Textil y Confección');">
+<body class="muebles" onload="load('Maderas y Muebles');">
     <!--[if lt IE 8]>
         <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -54,7 +54,7 @@
             </div>
             <div class="boderTop"></div>
             <a class="navbar-brand col-lg-2 col-md-3 col-xs-4 col-sm-3" href="<?php echo home_url() ?>"><img src="<?php print IMAGES; ?>/logo.png" alt="<?php bloginfo('name') ?> | <?php bloginfo('description') ?>"></a>
-            <div class="texSmartphone visible-xs-*">Alimentos</div>
+            <div class="texSmartphone visible-xs-*">Maderas y Muebles</div>
             <div class="slider">
                 <?php
                 $args = array('post_type' => 'slider', 'posts_per_page' => 10, 'p' => '46');
@@ -65,7 +65,7 @@
                         <ul class="hidden-xs">
                             <li>
                                 <div class="container">
-                                    <h1>Alimentos</h1>
+                                    <h1>Maderas y Muebles</h1>
                                     <p><?php the_content(); ?></p>
                                     <div class="image">
                                         <img src="<?php the_field('imagen_1') ?>" alt="">
@@ -74,7 +74,7 @@
                             </li>
                             <li>
                                 <div class="container">
-                                    <h1>Alimentos</h1>
+                                    <h1>Maderas y Muebles</h1>
                                     <p><?php the_content(); ?></p>
                                     <div class="image">
                                         <img src="<?php the_field('imagen_2') ?>" alt="">
@@ -83,7 +83,7 @@
                             </li>
                             <li>
                                 <div class="container">
-                                    <h1>Alimentos</h1>
+                                    <h1>Maderas y Muebles</h1>
                                     <p><?php the_content(); ?></p>
                                     <div class="image">
                                         <img src="<?php the_field('imagen_3') ?>" alt="">
