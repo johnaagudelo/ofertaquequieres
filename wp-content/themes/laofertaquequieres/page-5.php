@@ -16,13 +16,13 @@
                         <div class="infoEmpresa">
                             <img src="<?php print IMAGES; ?>/icon-alimentos.png" alt="" class="icon">
                             <strong>Incio de oferta</strong>
-                           <p id="fecha_ini"></p>
+                            <p id="fecha_ini"></p>
                             <strong>Fin de oferta</strong>
-                           <p id="fecha_fin"><p>
-                            <strong>Nombre MYPYME</strong>
-                           <p id="nom_empresa_1"></p>
+                            <p id="fecha_fin"><p>
+                                <strong>Nombre MYPYME</strong>
+                            <p id="nom_empresa_1"></p>
                             <strong>Categoría</strong>
-                          <p id="cat_mipyme"><p>
+                            <p id="cat_mipyme"><p>
                         </div>
                     </div>
                     <div class="sliderItem col-lg-9 col-md-9 col-xs-12 col-sm-8">
@@ -189,6 +189,4 @@
             </div>
         </div>
     </div>
-
-
     <?php get_footer(); ?>
