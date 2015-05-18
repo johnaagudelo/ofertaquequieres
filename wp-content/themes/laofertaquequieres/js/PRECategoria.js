@@ -55,9 +55,9 @@ PRECategoria.prototype.mostrarExtent =  function(extent) {
     
     if (extent != undefined) {
         this.extent = extent;
-    };
+    }
         
-        var parametros = {
+    var parametros = {
         "sistema": "SIS_40",
         "xmax": this.extent.xmax,
         "xmin": this.extent.xmin,
@@ -67,7 +67,7 @@ PRECategoria.prototype.mostrarExtent =  function(extent) {
         "tipcam": this.tipcam,
         "palabraClave": this.palabraClave
     };
-          var datos;
+    var datos;
     $.ajax({
         data: parametros,
         url: 'http://www.soyempresariodigital.com/Geomarketing/FUNOferta/ConsultarExtent',
@@ -76,11 +76,10 @@ PRECategoria.prototype.mostrarExtent =  function(extent) {
         dataType: 'json',
         success:function(data) {
             datos = data;
-            console.log(datos.respuesta);
         }
     });
     this.mipymesTipo = datos.respuesta;
-     if(this.map != null){
+    if(this.map != null){
         this.asignarEventos(this.map);
         this.map.filtrarMapa(this.map, this.mipymesTipo, this.capa);
     }
@@ -154,7 +153,7 @@ PRECategoria.prototype.ConsultarCamp = function(mipymes){
                     tarjeta = "";
                     var tamano = campanas.mensaje[i].tam_size;
                     if(tamano != 0 && tamano != null && tamano != "" && tamano != "0"){  
-                         $("#result").html("Buscando Publicaciones, espere un momento.....");
+                        $("#result").html("Buscando Publicaciones, espere un momento.....");
                         if (campanas.mensaje[i].cam_descri.length > 120){
                             var descripcion = campanas.mensaje[i].cam_descri.substring(0,120) + "...";
                         }else{
@@ -204,18 +203,16 @@ PRECategoria.prototype.ConsultarCamp = function(mipymes){
                     $("#result").html("Se encontraron <sapan class='cant-pub'>"+campanas.mensaje.length+" publicaciones</span>");
                 }else{
                     $("#result").html("Se encontraron <sapan class='cant-pub'>0 publicaciones</span>");
-                }campanas.mensaje[i].cam_nombre
-                //console.log(datos.mensaje);
+                }
+               
             }
         });
-        //this.PintarCampa(datos);
         this.ArrayCampanas = datos.mensaje;
     }else{
-        $("#result").html("No se Encontraron: "+this.tipcam);
+        $("#result").html("No se encontraron publicaciones: "+this.tipcam);
         $("#contCompa").html('<img class="logo-item" src="http://localhost:8080/ofertaquequieres/wp-content/themes/laofertaquequieres/images/logo.png"></img>');
     }
-
-    
+ 
 }
 
 
@@ -266,8 +263,9 @@ PRECategoria.prototype.informacionMipyme = function (codigo) {
     });
 }
 
-PRECategoria.prototype.cargarImagenCampana = function(cam_codigo,oid){
+PRECategoria.prototype.cargarImagenCampana = function(codigo,oid){
       var img64;
+      var cam_codigo = codigo;
       var parametros = {
         "oid": oid,
         "sistema": "SIS_40"
