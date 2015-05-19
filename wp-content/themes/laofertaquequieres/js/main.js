@@ -40,10 +40,20 @@ $(document).ready(function() {
         console.log("click");
         $(this).parent().parent().find('.detail').fadeIn('slow');
     })
-    
+
     $('.detail .cerrar').on('click', function(e) {
         e.preventDefault();
         $('#lightbox').fadeOut('slow');
+    })
+    $("footer .text-left").click(function(e) {
+        e.preventDefault();
+        console.log("click");
+        $('#terminos').fadeIn('slow');
+    })
+
+    $('.closed').on('click', function(e) {
+        e.preventDefault();
+        $('#terminos').fadeOut('slow');
     })
     /*slider*/
     $('.slider').iosSlider({

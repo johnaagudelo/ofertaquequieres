@@ -372,7 +372,7 @@
   left: 250px;
   width: 850px; 
 }
-#lightbox{
+#lightbox, #terminos{
     background: url("../images/bk_lightbox.png") repeat scroll left top rgba(0, 0, 0, 0);
     display: none;
     height: 100%;
@@ -381,6 +381,49 @@
     top: 0;
     width: 100%;
     z-index: 99;
+}
+#box-lightbox{
+    background: white none repeat scroll 0 0;
+    height: auto;
+    margin: -194px auto 0;
+    padding: 10px;
+    position: relative;
+    top: 50%;
+    width: 850px;
+}
+.lightbox{
+    background: #ececec none repeat scroll 0 0
+}
+.lightbox #lightbox-header {
+    background: #37762D none repeat scroll 0 0;
+    padding: 6px 0;
+    position: relative;
+}
+
+#lightbox-header h3 {
+    color: white;
+    margin: 0;
+    padding: 0 20px;
+}
+.lightbox #lightbox-content {
+    height: auto;
+    overflow: hidden;
+    padding: 20px;
+}
+#lightbox-header a.closed {
+    background-color: #37762D;
+    border-left: 2px solid white;
+    color: white;
+    cursor: pointer;
+    display: block;
+    font-weight: bold;
+    height: 20px;
+    padding-top: 9px;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: 0;
+    width: 30px;
 }
 .detail strong {
   margin-top: 5px;
