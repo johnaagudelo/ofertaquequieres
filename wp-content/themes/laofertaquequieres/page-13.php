@@ -14,12 +14,12 @@
                 <div class="detail col-lg-12 col-md-12 col-xs-12">
                     <div class="infoItem col-lg-3 col-md-3 col-xs-12 col-sm-4">
                         <div class="infoEmpresa">
-                            <img src="<?php print IMAGES; ?>/icon-alimentos.png" alt="" class="icon">
-                            <strong>Incio de oferta</strong>
+                            <img  id="imagen-tipo" alt="" class="icon">
+                            <strong>Fecha inicio</strong>
                             <p id="fecha_ini"></p>
-                            <strong>Fin de oferta</strong>
+                            <strong>Fecha fin</strong>
                             <p id="fecha_fin"><p>
-                                <strong>Nombre MYPYME</strong>
+                                <strong>Nombre MIPYME</strong>
                             <p id="nom_empresa_1"></p>
                             <strong>Categoría</strong>
                             <p id="cat_mipyme"><p>
@@ -29,7 +29,7 @@
                         <a href="" class="cerrar">X</a>
                         <div class="sliderOffer">
                             <ul>
-                                <li><img src="<?php print IMAGES; ?>/img1_detalle.jpg" alt=""></li>
+                                <li><img id="detalle-imagen" class="carga-imagen" src="http://localhost:8080/ofertaquequieres/wp-content/themes/laofertaquequieres/images/cam_loading.gif" alt=""></li>
                             </ul>
                             <a href="" class="controlLeft"></a>
                             <a href="" class="controlRight"></a>
@@ -37,16 +37,14 @@
                     </div>
                     <div class="col-lg-12 description col-md-12 col-xs-12">
                         <div class="descriptionItem">
-                            <h2 id="nom_empresa_2"></h2>
+                            <h2 id="nom_campana"></h2>
                             <p id="desc_campana"><br><br></p>
                             <a href="" class="icon-empresa">Ver más ofertas de esta MYPYME</a>
-                            <div class="price"></div>
+                            <div id="precio"></div>
                             <div class="col-lg-8 col-md-8 col-xs-8">
                                 <img class="logoMarca" src="<?php print IMAGES; ?>/logo.png" alt="">
                             </div>
-                            <div class="col-lg-4 col-md-4 col-xs-4">
-                                <a class="icon-facebook-circled" href=""></a>
-                                <a class="icon-twitter-circled" href=""></a>
+                            <div id="redes-sociales" class="col-lg-4 col-md-4 col-xs-4">
                             </div>
                         </div>
                     </div>

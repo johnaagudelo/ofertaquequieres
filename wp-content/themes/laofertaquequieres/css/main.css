@@ -439,7 +439,15 @@
   left: 0;
   width: 100%;
 }
-.detail .sliderOffer ul li img {
+
+.detail .sliderOffer ul li .carga-imagen-detalle{
+  position: absolute;
+  display: block;
+  top: 30%;
+  left: 40%;
+  width: 15%;
+}
+.detail .sliderOffer ul li .imagen-detalle {
   width: 100%;
 }
 .detail .description {
