@@ -43,15 +43,22 @@
           					categorias.yNegocio=coordenadas[1];
                     categorias.informacionMipyme(pyme);
                 }
-                /*$(document).ready(function(){
+                $(document).ready(function(){
                     $("#filtros li").click(function(){
                          var tipoCampa = $(this).attr("value");
-                         $("#filtros li").removeClass("active");    
-                         $(this).addClass("active");
                          categorias.tipcam = tipoCampa;
-                         categorias.mostrarExtent();
+                         categorias.palabraClave = "";
+                         $("#palabra-clave").val("");
+                         var pyme = "'"+categorias.mipymesTipo+"'";
+                         categorias.ConsultarCamp(pyme);
                      });
-                });*/
+                    $("#buscar").click(function() {
+                        var palabra = $("#palabra-clave").val();
+                        categorias.palabraClave = palabra;
+                        var pyme = "'"+categorias.mipymesTipo+"'";
+                        categorias.ConsultarCamp(pyme);
+                    });
+                });
         </script>
 
     </body>

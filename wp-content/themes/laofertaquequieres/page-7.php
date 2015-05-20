@@ -1,4 +1,4 @@
-<?php get_header(); ?>
+  <?php get_header(); ?>
 <?php
 /*
 Template Name: Empresa
@@ -10,28 +10,49 @@ Template Name: Empresa
         <![endif]-->
     <div id="header">
       <div class="row">
+        <div id="lightbox">
+                <div class="detail col-lg-12 col-md-12 col-xs-12">
+                    <div class="infoItem col-lg-3 col-md-3 col-xs-12 col-sm-4">
+                        <div class="infoEmpresa">
+                            <img  id="imagen-tipo" alt="" class="icon">
+                            <strong>Fecha inicio</strong>
+                            <p id="fecha_ini"></p>
+                            <strong>Fecha fin</strong>
+                            <p id="fecha_fin"><p>
+                                <strong>Nombre MIPYME</strong>
+                            <p id="nom_empresa_1"></p>
+                            <strong>Categoría</strong>
+                            <p id="cat_mipyme"><p>
+                        </div>
+                    </div>
+                    <div class="sliderItem col-lg-9 col-md-9 col-xs-12 col-sm-8">
+                        <a href="" class="cerrar">X</a>
+                        <div class="sliderOffer">
+                            <ul>
+                                <li><img id="detalle-imagen" class="carga-imagen-detalle" src="http://localhost:8080/ofertaquequieres/wp-content/themes/laofertaquequieres/images/cam_loading.gif" alt=""></li>
+                            </ul>
+                            <a href="" class="controlLeft"></a>
+                            <a href="" class="controlRight"></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 description col-md-12 col-xs-12">
+                        <div class="descriptionItem">
+                            <h2 id="nom_campana"></h2>
+                            <p id="desc_campana"><br><br></p>
+                            <a href="#" class="icon-empresa">Ver más ofertas de esta MYPYME</a>
+                            <div id="precio"></div>
+                            <div class="col-lg-8 col-md-8 col-xs-8">
+                                <img class="logoMarca" src="<?php print IMAGES; ?>/logo.png" alt="">
+                            </div>
+                            <div id="redes-sociales" class="col-lg-4 col-md-4 col-xs-4">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         <div class="boderTop"></div>
         <a class="navbar-brand col-lg-2 col-md-3 col-xs-4 col-sm-3" href="<?php echo home_url()?>"><img src="<?php print IMAGES;?>/logo.png" alt="<?php bloginfo('name') ?> | <?php bloginfo('description') ?>"></a>
-        <div class="col-lg-4 col-md-4 col-xs-12 col-sm-8 search">
-          <div class="input-group">
-            <div class="input-group-btn">
-              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Todos<span class="caret"><img src="<?php print IMAGES;?>/arrow.png" alt=""></span></button>
-              <ul class="dropdown-menu" role="menu">
-                <li><a href="#">Todos</a></li>
-                <li><a href="#">Ofertas</a></li>
-                <li><a href="#">Promociones</a></li>
-                <li><a href="#">Descuentos</a></li>
-                <li><a href="#">Eventos</a></li>
-                <li><a href="#">Casos de exito</a></li>
-                <li><a href="#">Información Especial</a></li>
-              </ul>
-            </div><!-- /btn-group -->
-            <input type="text" class="form-control" aria-label="..." placeholder="Encuentra la oferta que quieres" >
-            <div class="input-group-btn">
-              <button type="button" class="btn btn-default">Buscar</button>
-            </div>
-          </div><!-- /input-group -->
-        </div><!-- /.col-lg-6 -->
+        
         <div class="links col-xs-8 col-lg-5 col-md-6 col-sm-8">
           <a href="" class="paga"><img src="<?php print IMAGES;?>/tufactura.png" alt=""></a>
           <a href="" class="chec"><img src="<?php print IMAGES;?>/chec.png" alt=""></a>
@@ -66,20 +87,16 @@ Template Name: Empresa
     </div>
     <div class="contentMultimedia">
       <div class="container">
-        <div class="col-xs-8 col-lg-5 col-md-6 col-sm-6">
+        <div class="col-xs-12 col-lg-5 col-md-6 col-sm-6">
           <div class="sliderEmpresa">
             <ul>
-              <li><img src="<?php print IMAGES;?>/img1_sliderEmpresa.jpg" alt=""></li>
-              <li><img src="<?php print IMAGES;?>/img1_sliderEmpresa.jpg" alt=""></li>
-              <li><img src="<?php print IMAGES;?>/img1_sliderEmpresa.jpg" alt=""></li>
+              <li><img id="imagen-negocio" class="carga-imagen-negocio" src="http://localhost:8080/ofertaquequieres/wp-content/themes/laofertaquequieres/images/cam_loading.gif" alt=""></li>
             </ul>
-            <div class = 'prevButton'></div>   
-            <div class = 'nextButton'></div>
           </div>
         </div>
         <div class="col-lg-7 col-md-6 col-sm-6">
           <h2>Nuestras sedes</h2>
-          <div class="map" id="Visor-content">
+          <div class="map col-lg-7 col-md-6 col-sm-12" id="Visor-content">
             <iframe id="iframe-visor" class="negocio" src="http://localhost:8080/ofertaquequieres/visor-oferta/" frameborder="0"></iframe>
           </div>
         </div>
@@ -91,8 +108,10 @@ Template Name: Empresa
           <span class="location">Manizales, Caldas, Colombia</span>
           <h3>Descripción.</h3>
           <p id="descrip"></p>
-          <h3>Información de Contacto</h3>
+          <h3>Información de Contacto.</h3>
           <p id="infcon"></p>
+          <h3>Horario de atención.</h3>
+          <p id="horario"></p>
         </div>
         <div class="col-lg-3 col-xs-12 col-md-3 col-sm-3">
           <strong>Redes Sociales</strong><br>
@@ -103,103 +122,37 @@ Template Name: Empresa
     </div>
     <div class="publications">
       <div class="container">
+      <div class="row">
+         <div class="col-lg-3 col-xs-12 col-md-3 col-sm-4">
+         </div>
+        <div class="col-lg-9 col-xs-12 col-md-9 col-sm-8 search">
+          <div class="input-group"> 
+              <input type="text" class="form-control" id="palabra-clave" aria-label="..." placeholder="Encuentra la oferta que quieres" >
+              <div class="input-group-btn">
+                <button type="button"  id="buscar" class="btn btn-default">Buscar</button>
+              </div>
+            </div><!-- /input-group -->
+          </div><!-- /.col-lg-6 -->
+      </div> 
       <div class="types col-lg-3 col-xs-12 col-md-3 col-sm-4">
-        <ul class="postCategorias">
-          <li><a class="active" href="">Todos</a></li>
-          <li><a href="">Ofertas</a></li>
-          <li><a href="">Promociones</a></li>
-          <li><a href="">Descuentos</a></li>
-          <li><a href="">Eventos</a></li>
-          <li><a href="">Casos de Exito</a></li>
-          <li><a href="">Información Especial</a></li>
+        <ul class="postCategorias" id="filtros">
+          <li class="active" value=""><a>Todos</a></li>
+          <li value="Oferta"><a>Ofertas</a></li>
+          <li value="Promoción"><a >Promociones</a></li>
+          <li value="Descuento"><a >Descuentos</a></li>
+          <li value="Evento"><a>Eventos</a></li>
+          <li value="Caso Exito"><a >Casos de Exito</a></li>
+          <li value="Información Especial"><a >Información Especial</a></li> 
         </ul>
       </div>
       <div class="contentItems col-lg-9 col-xs-12 col-md-9 col-sm-8">
-        <a class="volver">Ver Categorias</a>
-        <div class="item col-lg-6 col-xs-12 col-md-6 col-sm-6">
-          <div class="image">
-            <div class="icon"><img src="<?php print IMAGES;?>/icon-alimentos.png" alt=""></div>
-            <img class="img-promo" src="<?php print IMAGES;?>/img_promo.jpg" alt="">
-            <div class="over icon-ver"></div>
-          </div>
-          <div class="info">
-            <h2>Deli Hamburguesa</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud...</p>
-            <a href="" class="icon-empresa">Ver Empresa</a>
-            <div class="price">$ 8.500</div>
-            <hr>
-            <div class="col-lg-8 col-sm-6 col-xs-8">
-              <img class="logoMarca" src="<?php print IMAGES;?>/logo.png" alt="">
+         <div id="result">
+                Aqui encontrara la oferta que quieres...
+          </div> 
+        <a class="volver">Ver Públicaciones</a>
+        <div id="contCompa">
+                    <img class="logo-item" src="<?php print IMAGES; ?>/logo.png"></img>
             </div>
-            <div class="col-lg-4 col-sm-6 col-xs-4">
-              <a class="icon-facebook-circled" href=""></a>
-              <a class="icon-twitter-circled" href=""></a>
-            </div>
-          </div>
-        </div>
-        <div class="item col-lg-6 col-xs-12 col-md-6 col-sm-6">  
-          <div class="image">
-            <div class="icon"><img src="<?php print IMAGES;?>/icon-alimentos.png" alt=""></div>
-            <img class="img-promo" src="<?php print IMAGES;?>/img_promo.jpg" alt="">
-            <div class="over icon-ver"></div>
-          </div>
-          <div class="info">
-            <h2>Deli Hamburguesa</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud...</p>
-            <a href="" class="icon-empresa">Ver Empresa</a>
-            <div class="price">$ 8.500</div>
-            <hr>
-            <div class="col-lg-8 col-sm-6 col-xs-8">
-              <img class="logoMarca" src="<?php print IMAGES;?>/logo.png" alt="">
-            </div>
-            <div class="col-lg-4 col-sm-6 col-xs-4">
-              <a class="icon-facebook-circled" href=""></a>
-              <a class="icon-twitter-circled" href=""></a>
-            </div>
-          </div>
-        </div>
-        <div class="item col-lg-6 col-xs-12 col-md-6 col-sm-6">
-          <div class="image">
-            <div class="icon"><img src="<?php print IMAGES;?>/icon-alimentos.png" alt=""></div>
-            <img class="img-promo" src="<?php print IMAGES;?>/img_promo.jpg" alt="">
-            <div class="over icon-ver"></div>
-          </div>
-          <div class="info">
-            <h2>Deli Hamburguesa</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud...</p>
-            <a href="" class="icon-empresa">Ver Empresa</a>
-            <div class="price">$ 8.500</div>
-            <hr>
-            <div class="col-lg-8 col-sm-6 col-xs-8">
-              <img class="logoMarca" src="<?php print IMAGES;?>/logo.png" alt="">
-            </div>
-            <div class="col-lg-4 col-sm-6 col-xs-4">
-              <a class="icon-facebook-circled" href=""></a>
-              <a class="icon-twitter-circled" href=""></a>
-            </div>
-          </div>
-        </div>
-        <div class="item col-lg-6 col-xs-12 col-md-6 col-sm-6">
-          <div class="image">
-            <div class="icon"><img src="<?php print IMAGES;?>/icon-alimentos.png" alt=""></div>
-            <img class="img-promo" src="<?php print IMAGES;?>/img_promo.jpg" alt="">
-            <div class="over icon-ver"></div>
-          </div>
-          <div class="info">
-            <h2>Deli Hamburguesa</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud...</p>
-            <a href="" class="icon-empresa">Ver Empresa</a>
-            <div class="price">$ 8.500</div>
-            <hr>
-            <div class="col-lg-8 col-sm-6 col-xs-8">
-              <img class="logoMarca" src="<?php print IMAGES;?>/logo.png" alt="">
-            </div>
-            <div class="col-lg-4 col-sm-6 col-xs-4">
-              <a class="icon-facebook-circled" href=""></a>
-              <a class="icon-twitter-circled" href=""></a>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
 <?php get_footer('negocio'); ?>
