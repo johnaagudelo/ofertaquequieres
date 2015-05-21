@@ -2,12 +2,30 @@
     <div id="box-lightbox">
         <div class="lightbox">
             <div id="lightbox-header">
-                <h3>TERMINOS Y CONDICIONES</h3>
+                <?php query_posts('p=72'); ?>
+                <?php while (have_posts()) : the_post(); ?>
+                <h3><?php the_title(); ?></h3>
                 <a class="closed">X</a>
             </div><!--cierro lightbox-header-->
             <div id="lightbox-content">
                 <p>
-                    ESPACIO PARA LOS TERMINOS Y LAS CONDICIONES
+                    <?php the_content(); ?>
+                </p>
+                <?php endwhile; ?>
+            </div><!--cierro lightbox-content-->
+        </div><!--cierro box-lightbox--> 
+    </div>
+</div>
+<div id="registro" style="display: none;">
+    <div id="box-lightbox">
+        <div class="lightbox">
+            <div id="lightbox-header">
+                <h3>Informacion de registro</h3>
+                <a class="closed">X</a>
+            </div><!--cierro lightbox-header-->
+            <div id="lightbox-content">
+                <p>
+                    Su Registro fue exitoso
                 </p>
             </div><!--cierro lightbox-content-->
         </div><!--cierro box-lightbox--> 
@@ -17,10 +35,10 @@
     <div class="container">
         <p>Recibe las mejores ofertas en tu correo electrónico</p>
         <div class="form-group">
-            <input type="text" class="form-control" placeholder="Nombre">
-            <input type="text" class="form-control" placeholder="Correo electrónico">
+            <input id="nombre" type="text" class="form-control" placeholder="Nombre" required="required">
+            <input id="email" type="email" class="form-control" placeholder="Correo electrónico" required="required">
         </div>
-        <button type="submit" class="btn btn-default">Suscribirme</button>
+        <div class="btn btn-default">Suscribirme</div>
     </div>
 </div>
 <footer>

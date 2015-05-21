@@ -459,3 +459,4 @@ PRECategoria.prototype.obtenerImagenTipoCampana = function(tipo){
 
         return imagen;
 }
+

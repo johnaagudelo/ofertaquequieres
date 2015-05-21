@@ -55,6 +55,11 @@ $(document).ready(function() {
         e.preventDefault();
         $('#terminos').fadeOut('slow');
     })
+
+    $('.closed').on('click', function(e) {
+        e.preventDefault();
+        $('#registro').fadeOut('slow');
+    })
     /*slider*/
     $('.slider').iosSlider({
         desktopClickDrag: true,
@@ -188,10 +193,29 @@ $(document).ready(function() {
             scrollTop: $(".contentItems").offset().top
         }, 1000);
     });
+    $(".btn-default").click(function() {
+        //  alert("entree");
+        var nombre = $("#nombre").text();
+        var email = $("#email").text();
+        var parametros = {
+            "nombre": nombre,
+            "email": email
+        }
+        $.ajax({
+            type: 'POST',
+            url: 'http://www.soyempresariodigital.com/Geomarketing/FUNOferta/Registrarse',
+            data: parametros,
+            dataType: "json",
+            async: false,
+            success: function() {
+                //alert("sufuciiente");
+            },
+            error: function() {
+               // alert("suficiente");
+                $('#registro').fadeIn('slow');
+            }
 
-
-
-
-
+        });
+    });
 
 });

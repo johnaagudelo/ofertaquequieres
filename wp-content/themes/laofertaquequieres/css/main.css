@@ -372,7 +372,7 @@
   left: 250px;
   width: 850px; 
 }
-#lightbox, #terminos{
+#lightbox, #terminos, #registro{
     background: url("../images/bk_lightbox.png") repeat scroll left top rgba(0, 0, 0, 0);
     display: none;
     height: 100%;
@@ -383,16 +383,23 @@
     z-index: 99;
 }
 #box-lightbox{
-    background: white none repeat scroll 0 0;
-    height: auto;
+    background: white none repeat scroll 0 0;  
     margin: -194px auto 0;
     padding: 10px;
     position: relative;
-    top: 50%;
+    top: 35%;
     width: 850px;
 }
+#terminos #box-lightbox{
+    height: 600px;
+}
+
 .lightbox{
-    background: #ececec none repeat scroll 0 0
+    background: #ececec none repeat scroll 0 0;
+    height: 100%;
+    overflow-y: auto;
+        
+        
 }
 .lightbox #lightbox-header {
     background: #37762D none repeat scroll 0 0;
@@ -734,15 +741,15 @@
   position: relative;
   opacity: 0;
   left: 20%;
-  top: 17%;
+  top: 100px;
 }
 .home #header .slider ul li .image,
 .empresa #header .slider ul li .image {
   top: 24%;
 }
-.home #header .slider ul li.alimentos .readmore,
+.home #header .slider ul li.slider-principal .readmore,
 .empresa #header .slider ul li.alimentos .readmore {
-  background: #d70f16;
+  background: #37762D;
 }
 .home #header .slider ul li.confeccion .readmore,
 .empresa #header .slider ul li.confeccion .readmore {
