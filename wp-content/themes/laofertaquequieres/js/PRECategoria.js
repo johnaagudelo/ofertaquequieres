@@ -251,6 +251,7 @@ PRECategoria.prototype.ObtenerInfoCap = function(punto, capas, widget) {
 }
 
 PRECategoria.prototype.informacionMipyme = function(codigo) {
+    $('#redes-sociales').html("");
     var infomipyme = null;
     var parametros = {
         "sistema": "SIS_40",
@@ -309,6 +310,14 @@ PRECategoria.prototype.informacionMipyme = function(codigo) {
                     $(".contentMultimedia .sliderEmpresa #imagen-negocio").attr("src","http://localhost:8080/ofertaquequieres/wp-content/themes/laofertaquequieres/images/img1_sliderEmpresa.jpg");
                     $(".contentMultimedia .sliderEmpresa #imagen-negocio").removeClass();
             }
+
+            if(infomipyme.mensaje[0].pym_pgfbid != ""){
+                $('.descriptionEmpresa .container #redes-sociales').append('<a class="icon-facebook-circled" target="_black" href="http://www.facebook.com/'+infomipyme.mensaje[0].pym_pgfbid+'"></a>');
+            }
+            if(infomipyme.mensaje[0].pym_pertwi != "" && infomipyme.mensaje[0].pym_pertwi != "@"){
+                $('.descriptionEmpresa').find("#redes-sociales").append('<a class="icon-twitter-circled" target="_black" href="http://www.twitter.com/'+infomipyme.mensaje[0].pym_pertwi+'"></a>');
+            }
+            
         }
     });
 }

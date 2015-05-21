@@ -46,6 +46,8 @@
                 $(document).ready(function(){
                     $("#filtros li").click(function(){
                          var tipoCampa = $(this).attr("value");
+                         $("#filtros li a").removeClass("active");
+                         $(this).find("a").addClass("active");
                          categorias.tipcam = tipoCampa;
                          categorias.palabraClave = "";
                          $("#palabra-clave").val("");

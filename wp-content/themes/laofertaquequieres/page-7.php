@@ -115,8 +115,7 @@ Template Name: Empresa
         </div>
         <div class="col-lg-3 col-xs-12 col-md-3 col-sm-3">
           <strong>Redes Sociales</strong><br>
-          <a class="icon-facebook-circled" href=""></a>
-          <a class="icon-twitter-circled" href=""></a>
+          <div id="redes-sociales"></div>
         </div>
       </div>
     </div>
