@@ -24,7 +24,7 @@
                 <a class="closed">X</a>
             </div><!--cierro lightbox-header-->
             <div id="lightbox-content">
-                <p>
+                <p id="mensaje">
                     Su Registro fue exitoso
                 </p>
             </div><!--cierro lightbox-content-->
@@ -38,7 +38,7 @@
             <input id="nombre" type="text" class="form-control" placeholder="Nombre" required="required">
             <input id="email" type="email" class="form-control" placeholder="Correo electrónico" required="required">
         </div>
-        <div class="btn btn-default">Suscribirme</div>
+        <div class="btn btn-default" id="enviar-registro">Suscribirme</div>
     </div>
 </div>
 <footer>

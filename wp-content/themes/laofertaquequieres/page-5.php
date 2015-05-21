@@ -155,7 +155,7 @@
          <iframe id="iframe-visor" class="categoria" src="http://localhost:8080/ofertaquequieres/visor-oferta/" frameborder="0"></iframe>
         <a class="ver">Ver resultados</a>
       </div>
-        <div class="contentItems col-lg-6 col-md-7" >
+        <div class="contentItems col-lg-6 col-md-7 col-xs-12" >
             <a class="volver">Volver a mapa</a>
             <div id="contCompa">
                     <img class="logo-item" src="<?php print IMAGES; ?>/logo.png"></img>

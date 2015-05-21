@@ -1400,6 +1400,9 @@
   .copyright {
     clear: both;
   }
+  .categoria{
+    height: 300px;
+  }
   .home #header .slider ul li h1 {
     font-size: 40px;
   }
@@ -1463,5 +1466,9 @@
     width: 100%;
     float: left;
     margin: 0 !important;
+  }
+  .resultados{
+    margin-left: 15px;
+    margin-top: 5px;
   }
 }

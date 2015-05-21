@@ -193,29 +193,62 @@ $(document).ready(function() {
             scrollTop: $(".contentItems").offset().top
         }, 1000);
     });
-    $(".btn-default").click(function() {
-        //  alert("entree");
-        var nombre = $("#nombre").text();
-        var email = $("#email").text();
-        var parametros = {
+    $("#enviar-registro").click(function() {
+        
+        var bandera = true;
+        var nombre = $("#nombre").val();
+        if(nombre == ""){
+            $("#mensaje").html("El nombre y el correo electrónico son obligatorios");
+            $('#registro').fadeIn('slow');
+            bandera = false;
+        }
+        var email = $("#email").val();
+        if(email == ""){
+            $("#mensaje").html("El nombre y el correo electrónico son obligatorios");
+            $('#registro').fadeIn('slow');
+            bandera = false;
+        }else{
+            expr = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+            if ( !expr.test(email) ){
+                $("#mensaje").html("Error: La dirección de correo " + email + " es incorrecta.");
+                $('#registro').fadeIn('slow');
+                bandera = false;
+            }
+        }
+
+        if(bandera){
+            var parametros = {
+            "sistema": "SIS_40",
             "nombre": nombre,
             "email": email
-        }
-        $.ajax({
-            type: 'POST',
-            url: 'http://www.soyempresariodigital.com/Geomarketing/FUNOferta/Registrarse',
-            data: parametros,
-            dataType: "json",
-            async: false,
-            success: function() {
-                //alert("sufuciiente");
-            },
-            error: function() {
-               // alert("suficiente");
-                $('#registro').fadeIn('slow');
             }
+            $.ajax({
+                type: 'POST',
+                url: 'http://www.soyempresariodigital.com/Geomarketing/FUNOferta/Registro',
+                data: parametros,
+                dataType: "json",
+                async: false,
+                success: function(data) {
+                    //alert("sufuciiente");
+                    if(data.mensaje[0]=="1"){
+                        $("#mensaje").html("Su Registro fue exitoso.");
+                        $('#registro').fadeIn('slow');
+                        $("#nombre").val(" ");
+                        $("#email").val(" ");
+                    }else{
+                        $("#mensaje").html("Error en el registro.");
+                        $('#registro').fadeIn('slow');
+                    }
+                },
+                error: function() {
+                   // alert("suficiente");
+                   $("#mensaje").html("Error en el Registro.");
+                   $('#registro').fadeIn('slow');
+                }
 
-        });
+            });
+        }
+        
     });
 
 });
