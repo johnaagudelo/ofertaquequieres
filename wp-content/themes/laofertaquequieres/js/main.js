@@ -251,4 +251,20 @@ $(document).ready(function() {
         
     });
 
+     $("#btn-registro").click(function() {
+        var alto = $("#frm-refistro").height();
+        if(alto == 0){
+            $("#frm-refistro").animate({
+                height: "300",
+                bottom: "-300"
+          }, 500);
+        }else{
+            $("#frm-refistro").animate({
+                height: "0",
+                bottom: "0"
+          }, 500);
+        }
+        
+    });
+    
 });
