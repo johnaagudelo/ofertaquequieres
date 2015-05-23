@@ -139,17 +139,18 @@
     </div>
     <div class="row results">
         <div class="row buscardor">
+            <div class="resultados col-lg-6 col-md-5 search" id="result">
+                Explora en el mapa y encontrara la oferta que quieres...
+            </div> 
             <div class="col-lg-6 col-md-5 search">
                     <div class="input-group">
-                        <input type="text" id="palabra-clave" class="form-control" aria-label="..." placeholder="Encuentra la oferta que quieres" >
+                        <input type="text" id="palabra-clave" class="form-control" aria-label="..." placeholder="Encuentra la oferta que quieres por palabra clave" >
                         <div class="input-group-btn">
                             <button type="button" id="buscar" class="btn btn-default">Buscar</button>
                         </div>
                     </div><!-- /input-group -->
                 </div><!-- /.col-lg-6 -->
-            <div class="resultados col-lg-6 col-md-5 search" id="result">
-                Explora en el mapa y encontrara la oferta que quieres...
-            </div> 
+            
         </div>
       <div class="map col-lg-6 col-md-5" id="Visor-content">
          <iframe id="iframe-visor" class="categoria" src="http://localhost:8080/ofertaquequieres/visor-oferta/" frameborder="0"></iframe>

@@ -8,7 +8,7 @@
         "url": "https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer",
         "name": "Dirección",
         "singleLineFieldName": "SingleLine",
-        "placeholder": "Buscar"
+        "placeholder": "Buscar por direcciónes"
       }
     ]
   }
