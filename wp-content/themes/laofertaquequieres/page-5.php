@@ -111,7 +111,7 @@
                 <a href="http://soyempresariodigital.com/Geomarketing" class="icon-sesion">Inicia Sesión</a>
             </div>
             <div class="categories">
-                <p class="instruction">Clic en la categoría para iniciar tu búsqueda prueba</p>
+                <p class="instruction">Clic en la categoría para iniciar tu búsqueda</p>
                 <div class="container">
                     <a href="http://localhost:8080/ofertaquequieres/alimentos/" class="category"><img src="<?php print IMAGES; ?>/icon-alimentos.png" alt=""><br><span>ALIMENTOS</span></a>
                     <a href="http://localhost:8080/ofertaquequieres/confeccion/" class="category"><img src="<?php print IMAGES; ?>/icon-confeccion.png" alt=""><br><span>CONFECCIÓN</span></a>
