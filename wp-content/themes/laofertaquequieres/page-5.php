@@ -50,89 +50,28 @@
                     </div>
                 </div>
             </div>
-            <div class="boderTop"></div>
-            <a class="navbar-brand col-lg-2 col-md-3 col-xs-4 col-sm-3" href="<?php echo home_url() ?>"><img src="<?php print IMAGES; ?>/logo.png" alt="<?php bloginfo('name') ?> | <?php bloginfo('description') ?>"></a>
-            <div class="texSmartphone visible-xs-*">Alimentos</div>
-            <div class="slider">
-                <?php
-                $args = array('post_type' => 'slider', 'posts_per_page' => 10, 'p' => '35');
-                $the_query = new WP_Query($args);
-                ?>
-                <?php if ($the_query->have_posts()) : ?>
-                    <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
-                        <ul class="hidden-xs">
-                            <li>
-                                <div class="container">
-                                    <h1>Alimentos</h1>
-                                    <p><?php the_content(); ?></p>
-                                    <div class="image">
-                                        <img src="<?php the_field('imagen_1') ?>" alt="">
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="container">
-                                    <h1>Alimentos</h1>
-                                    <p><?php the_content(); ?></p>
-                                    <div class="image">
-                                        <img src="<?php the_field('imagen_2') ?>" alt="">
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="container">
-                                    <h1>Alimentos</h1>
-                                    <p><?php the_content(); ?></p>
-                                    <div class="image">
-                                        <img src="<?php the_field('imagen_3') ?>" alt="">
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                        <ol class="carousel-indicators hidden-xs">
-                            <li class="active"></li>
-                            <li></li>
-                            <li></li>
-                        </ol>
-                        <?php the_post_thumbnail(); ?>
-                        <div class="scrollbarContainer"></div>
-                    <?php endwhile; ?>
-                <?php endif; ?>
-            </div>
-            
-            <div class="links col-xs-8 col-lg-5 col-md-6 col-sm-8">
-                <a href="" class="paga"><img src="<?php print IMAGES; ?>/tufactura.png" alt=""></a>
-                <a href="" class="chec"><img src="<?php print IMAGES; ?>/chec.png" alt=""></a>
-                <div class="social">
-                    Siguenos en:<br>
-                    <a href="https://www.facebook.com/pages/La-Oferta-Que-Quieres/256376717905182" class="icon-facebook-circled"></a>
-                    <a href="https://twitter.com/OfertaQueQuiere" class="icon-twitter-circled"></a>
-                </div>
-                <a href="http://soyempresariodigital.com/Geomarketing" class="icon-sesion">Inicia Sesión</a>
-            </div>
-            <div class="categories">
-                <p class="instruction">Clic en la categoría para iniciar tu búsqueda</p>
-                <div class="container">
-                    <a href="http://localhost:8080/ofertaquequieres/alimentos/" class="category"><img src="<?php print IMAGES; ?>/icon-alimentos.png" alt=""><br><span>ALIMENTOS</span></a>
-                    <a href="http://localhost:8080/ofertaquequieres/confeccion/" class="category"><img src="<?php print IMAGES; ?>/icon-confeccion.png" alt=""><br><span>CONFECCIÓN</span></a>
-                    <a href="http://localhost:8080/ofertaquequieres/cuero-y-calzado/" class="category"><img src="<?php print IMAGES; ?>/icon-cueroycalzado.png" alt=""><br><span>CUERO Y CALZADO</span></a>
-                    <a href="http://localhost:8080/ofertaquequieres/muebles/" class="category"><img src="<?php print IMAGES; ?>/icon-muebles.png" alt=""><br><span>MUEBLES</span></a>
-                    <a href="http://localhost:8080/ofertaquequieres/joyeria/" class="category"><img src="<?php print IMAGES; ?>/icon-joyeria.png" alt=""><br><span>JOYERIA</span></a>
-                    <a href="http://localhost:8080/ofertaquequieres/salud-y-belleza/" class="category"><img src="<?php print IMAGES; ?>/icon-saludybelleza.png" alt=""><br><span>SALUD Y BELLEZA</span></a>
-                    <a href="http://localhost:8080/ofertaquequieres/servicios/" class="category"><img src="<?php print IMAGES; ?>/icon-servicios.png" alt=""><br><span>SERVICIOS</span></a>
-                    <a href="http://localhost:8080/ofertaquequieres/metalmecanica/" class="category"><img src="<?php print IMAGES; ?>/icon-metalmecanica.png" alt=""><br><span>METALMECANICA</span></a>
-                    <a href="http://localhost:8080/ofertaquequieres/comercio/" class="category"><img src="<?php print IMAGES; ?>/icon-comercio.png" alt=""><br><span>COMERCIO</span></a>
+            <div class="links col-xs-12 col-lg-12 col-md-12 col-sm-12">
+                <a class="navbar-brand col-lg-2 col-md-3 col-xs-4 col-sm-3" href="<?php echo home_url() ?>"><img src="<?php print IMAGES; ?>/logo.png" alt="<?php bloginfo('name') ?> | <?php bloginfo('description') ?>"></a>
+                <div id="social">
+                    <a href="" class="paga"><img src="<?php print IMAGES; ?>/tufactura.png" alt=""></a>
+                    <a href="" class="chec"><img src="<?php print IMAGES; ?>/chec.png" alt=""></a>
+                    <div class="social">
+                        Siguenos en:<br>
+                        <a href="https://www.facebook.com/pages/La-Oferta-Que-Quieres/256376717905182" class="icon-facebook-circled"></a>
+                        <a href="https://twitter.com/OfertaQueQuiere" class="icon-twitter-circled"></a>
+                    </div>
+                    <a href="http://soyempresariodigital.com/Geomarketing" class="icon-sesion">Inicia Sesión</a>
                 </div>
             </div>
             <div class="collapse navbar-collapse navbar-fixed-top filters" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav container" id="filtros">
-                        <li class="active" value=""><a >Todos</a></li>
-                        <li value="Oferta"><a>Ofertas</a></li>
-                        <li value="Promoción"><a >Promociones</a></li>
-                        <li value="Descuento"><a >Descuentos</a></li>
-                        <li value="Evento"><a>Eventos</a></li>
-                        <li value="Caso Exito"><a >Casos de Exito</a></li>
-                        <li value="Información Especial"><a >Información Especial</a></li> 
+                    <li class="active" value=""><a >Todos</a></li>
+                    <li value="Oferta"><a>Ofertas</a></li>
+                    <li value="Promoción"><a >Promociones</a></li>
+                    <li value="Descuento"><a >Descuentos</a></li>
+                    <li value="Evento"><a>Eventos</a></li>
+                    <li value="Caso Exito"><a >Casos de Exito</a></li>
+                    <li value="Información Especial"><a >Información Especial</a></li> 
                 </ul>
             </div>
         </div>  
@@ -143,23 +82,88 @@
                 Explora en el mapa y encontrara la oferta que quieres...
             </div> 
             <div class="col-lg-6 col-md-5 search">
-                    <div class="input-group">
-                        <input type="text" id="palabra-clave" class="form-control" aria-label="..." placeholder="Encuentra la oferta que quieres por palabra clave" >
-                        <div class="input-group-btn">
-                            <button type="button" id="buscar" class="btn btn-default">Buscar</button>
-                        </div>
-                    </div><!-- /input-group -->
-                </div><!-- /.col-lg-6 -->
-            
+                <div class="input-group">
+                    <input type="text" id="palabra-clave" class="form-control" aria-label="..." placeholder="Encuentra la oferta que quieres por palabra clave" >
+                    <div class="input-group-btn">
+                        <button type="button" id="buscar" class="btn btn-default">Buscar</button>
+                    </div>
+                </div><!-- /input-group -->
+            </div><!-- /.col-lg-6 -->
+
         </div>
-      <div class="map col-lg-6 col-md-5" id="Visor-content">
-         <iframe id="iframe-visor" class="categoria" src="http://localhost:8080/ofertaquequieres/visor-oferta/" frameborder="0"></iframe>
-        <a class="ver">Ver resultados</a>
-      </div>
+        <div class="map col-lg-6 col-md-5" id="Visor-content">
+            <iframe id="iframe-visor" class="categoria" src="http://localhost:8080/ofertaquequieres/visor-oferta/" frameborder="0"></iframe>
+            <a class="ver">Ver resultados</a>
+        </div>
         <div class="contentItems col-lg-6 col-md-7 col-xs-12" >
             <a class="volver">Volver a mapa</a>
             <div id="contCompa">
-                    <img class="logo-item" src="<?php print IMAGES; ?>/logo.png"></img>
+                <img class="logo-item" src="<?php print IMAGES; ?>/logo.png"></img>
+            </div>
+        </div>
+    </div>
+    <div id="header">
+        <div class="boderTop"></div>
+
+        <div class="texSmartphone visible-xs-*">Alimentos</div>
+        <div class="slider">
+            <?php
+            $args = array('post_type' => 'slider', 'posts_per_page' => 10, 'p' => '35');
+            $the_query = new WP_Query($args);
+            ?>
+            <?php if ($the_query->have_posts()) : ?>
+                <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
+                    <ul class="hidden-xs">
+                        <li>
+                            <div class="container">
+                                <h1>Alimentos</h1>
+                                <p><?php the_content(); ?></p>
+                                <div class="image">
+                                    <img src="<?php the_field('imagen_1') ?>" alt="">
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="container">
+                                <h1>Alimentos</h1>
+                                <p><?php the_content(); ?></p>
+                                <div class="image">
+                                    <img src="<?php the_field('imagen_2') ?>" alt="">
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="container">
+                                <h1>Alimentos</h1>
+                                <p><?php the_content(); ?></p>
+                                <div class="image">
+                                    <img src="<?php the_field('imagen_3') ?>" alt="">
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                    <ol class="carousel-indicators hidden-xs">
+                        <li class="active"></li>
+                        <li></li>
+                        <li></li>
+                    </ol>
+                    <?php the_post_thumbnail(); ?>
+                    <div class="scrollbarContainer"></div>
+                <?php endwhile; ?>
+            <?php endif; ?>
+        </div>
+        <div class="categories">
+            <p class="instruction">Clic en la categoría para iniciar tu búsqueda</p>
+            <div class="container">
+                <a href="http://localhost:8080/ofertaquequieres/alimentos/" class="category"><img src="<?php print IMAGES; ?>/icon-alimentos.png" alt=""><br><span>ALIMENTOS</span></a>
+                <a href="http://localhost:8080/ofertaquequieres/confeccion/" class="category"><img src="<?php print IMAGES; ?>/icon-confeccion.png" alt=""><br><span>TEXTIL CONFECCIÓN </span></a>
+                <a href="http://localhost:8080/ofertaquequieres/cuero-y-calzado/" class="category"><img src="<?php print IMAGES; ?>/icon-cueroycalzado.png" alt=""><br><span>CUERO Y CALZADO</span></a>
+                <a href="http://localhost:8080/ofertaquequieres/muebles/" class="category"><img src="<?php print IMAGES; ?>/icon-muebles.png" alt=""><br><span>MADERA Y MUEBLES</span></a>
+                <a href="http://localhost:8080/ofertaquequieres/joyeria/" class="category"><img src="<?php print IMAGES; ?>/icon-joyeria.png" alt=""><br><span>JOYERIA Y ARTESANIAS</span></a>
+                <a href="http://localhost:8080/ofertaquequieres/salud-y-belleza/" class="category"><img src="<?php print IMAGES; ?>/icon-saludybelleza.png" alt=""><br><span>SALUD Y BELLEZA</span></a>
+                <a href="http://localhost:8080/ofertaquequieres/servicios/" class="category"><img src="<?php print IMAGES; ?>/icon-servicios.png" alt=""><br><span>SERVICIOS UNIVERSITARIOS</span></a>
+                <a href="http://localhost:8080/ofertaquequieres/metalmecanica/" class="category"><img src="<?php print IMAGES; ?>/icon-metalmecanica.png" alt=""><br><span>METALMECANICA</span></a>
+                <a href="http://localhost:8080/ofertaquequieres/comercio/" class="category"><img src="<?php print IMAGES; ?>/icon-comercio.png" alt=""><br><span>COMERCIO Y SERVICIOS</span></a>
             </div>
         </div>
     </div>
