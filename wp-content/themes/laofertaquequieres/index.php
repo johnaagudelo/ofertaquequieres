@@ -6,8 +6,6 @@
     <div id="header">
         <div class="row">
             <div class="boderTop"></div>
-
-
             <div class="slider">
                 <ul>
                     <?php query_posts('category_name=Slider Principal'); ?>
@@ -44,6 +42,19 @@
                     </div>
                     <a href="" class="icon-sesion">Inicia Sesión</a>
                 </div>
+                <div id="btn-registro" class="registro"></div>
+                 <div id="frm-refistro" class="frm-registro">
+                    <div class="subscribe">
+                        <div class="container">
+                            <p>Recibe las mejores ofertas en tu correo electrónico</p>
+                            <div class="form-group">
+                                <input id="nombre" type="text" class="form-control" placeholder="Nombre" required="required">
+                                <input id="email" type="email" class="form-control" placeholder="Correo electrónico" required="required">
+                            </div>
+                            <div class="btn btn-default" id="enviar-registro">Suscribirme</div>
+                        </div>
+                    </div>
+                 </div>
             </div>
             <div class="categories">
                 <h2>Bienvenido a la red de ofertas más grande de la región</h2>
@@ -62,4 +73,4 @@
             </div>
         </div>  
     </div>
-    <?php get_footer(); ?>
+    <?php get_footer('home'); ?>
