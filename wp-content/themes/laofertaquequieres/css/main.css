@@ -5,6 +5,9 @@
     More info at: http://lesselements.com
   ---------------------------------------------------*/
 @import url(laoferta.css);
+#container-home{
+    
+}
 #header {
   width: 100%;
   box-sizing: border-box;
@@ -32,11 +35,13 @@
   left: 25%;
 }
 #header .links {
+  background-color: rgba(255, 255, 255, 1);
   float: right;
-  height: 37px;
+  height: 90px;
   margin-left: 2%;
   position: relative;
   z-index: 1;
+  border-bottom: 5px solid #37762d;
 }
 #header .links .social {
   font-weight: 700;
@@ -149,7 +154,7 @@
   width: 100%;
 }
 #header .categories {
-  height: 185px;
+  height: 200px;
   background: rgba(255, 255, 255, 0.8);
   width: 100%;
   z-index: 1;
@@ -159,7 +164,6 @@
 #header .categories .instruction {
   width: 100%;
   color: black;
-  padding-top: 15px;
   text-align: center;
   font-weight: 400;
   display: block;
@@ -674,10 +678,13 @@
   text-decoration: underline;
 }
 .home .links .social {
-  color: white !important;
+  color: #37762D !important;
+}
+#social{
+    float: right;
 }
 .home .links .social a:before {
-  color: white;
+  color: #37762D;
 }
 .home #header .boderTop,
 .empresa #header .boderTop {
@@ -686,6 +693,11 @@
 .home #header .links .icon-sesion,
 .empresa #header .links .icon-sesion {
   background: #37762d;
+}
+.categories h2{
+    color: white;
+    text-align: center;
+    margin: 0;
 }
 .home #header .links .social,
 .empresa #header .links .social {
@@ -699,7 +711,7 @@
 .empresa #header .categories {
   top: inherit;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.65);
+  background: rgba(0, 0, 0, 0);
   border-bottom: 2px solid #37762d;
 }
 .home #header .categories p,
