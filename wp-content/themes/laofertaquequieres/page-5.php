@@ -18,24 +18,6 @@
             </div><!-- /input-group -->
         </div><!-- /.col-lg-6 -->
         <div class="agenda-mipymes contentItems col-lg-12 col-md-12">
-            <div class="tarjeta-pyme">
-                <div class="tipo-negocio"><img src="<?php print IMAGES; ?>/icon-alimentos.png" alt=""></div>
-                <div class="inf-pyme">
-                    <span><h4>Nombre de la Mipyme</h4></span>
-                    <span>Nombre de Contacto</span>
-                    <span>Email</span>
-                    <span>Celular</span>
-                </div>
-            </div>
-            <div class="tarjeta-pyme">
-                <div class="tipo-negocio"><img src="<?php print IMAGES; ?>/icon-alimentos.png" alt=""></div>
-                <div class="inf-pyme">
-                    <span><h4>Nombre de la Mipyme</h4></span>
-                    <span>Nombre de Contacto</span>
-                    <span>Email</span>
-                    <span>Celular</span>
-                </div>
-            </div>
         </div>
     </div>
     <div id="header">
