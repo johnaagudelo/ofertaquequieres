@@ -255,8 +255,8 @@ $(document).ready(function() {
         var alto = $("#frm-refistro").height();
         if(alto == 0){
             $("#frm-refistro").animate({
-                height: "300",
-                bottom: "-300"
+                height: "100",
+                bottom: "-100"
           }, 500);
         }else{
             $("#frm-refistro").animate({

@@ -56,7 +56,7 @@ PRECategoria.prototype.mostrarExtent = function(extent) {
     if (extent != undefined) {
         this.extent = extent;
     }
-        
+
     var parametros = {
         "sistema": "SIS_40",
         "xmax": this.extent.xmax,
@@ -79,7 +79,7 @@ PRECategoria.prototype.mostrarExtent = function(extent) {
         }
     });
     this.mipymesTipo = datos.respuesta;
-    if(this.map != null){
+    if (this.map != null) {
         this.asignarEventos(this.map);
         this.map.filtrarMapa(this.map, this.mipymesTipo, this.capa);
     }
@@ -98,12 +98,10 @@ PRECategoria.prototype.asignarEventos = function(map) {
             layer = map.getLayer(layer.id);
             map.removeLayer(layer);
             layer.refresh();
-
             if (filtro != "") {
                 layer._getCapabilitiesURL = capa + "&filtro=t_mipyme.pym_codigo in (" + filtro + ")";
                 layer.url = capa + "&filtro=t_mipyme.pym_codigo in (" + filtro + ")";
                 layer.getMapURL = capa + "&filtro=t_mipyme.pym_codigo in (" + filtro + ")";
-
             } else {
                 layer.getMapURL = capa + "&filtro=t_mipyme.pym_codigo=@@";
             }
@@ -113,18 +111,16 @@ PRECategoria.prototype.asignarEventos = function(map) {
             i = i + map.LayersCopia.length;
         }
     };
-
 }
 
 //Consultamos las campañas de las pymes de los filtros y del extent
-PRECategoria.prototype.ConsultarCamp = function(mipymes){
-    if(mipymes != ""){
+PRECategoria.prototype.ConsultarCamp = function(mipymes) {
+    if (mipymes != "") {
         var campanas;
         var objeto;
-        var condicion = "pym_codigo in("+mipymes+")";
-        if(this.tipcam != ""){
-            condicion =condicion+"and cam_tipo = '" + this.tipcam + "'";
-
+        var condicion = "pym_codigo in(" + mipymes + ")";
+        if (this.tipcam != "") {
+            condicion = condicion + "and cam_tipo = '" + this.tipcam + "'";
         }
         if (this.palabraClave != "") {
             condicion = condicion + " and (cam_nombre ilike '%" + this.palabraClave + "%' or cam_descri ilike '%" + this.palabraClave + "%')";
@@ -143,22 +139,21 @@ PRECategoria.prototype.ConsultarCamp = function(mipymes){
             data: parametros,
             dataType: "json",
             async: false,
-
-            success:function(data) {
-                objeto = this; 
+            success: function(data) {
+                objeto = this;
                 campanas = data;
                 var tarjeta = "";
                 $("#result").html("");
                 $("#contCompa").html("");
-                if(campanas.mensaje.length>0){
+                if (campanas.mensaje.length > 0) {
                     for (var i = 0; i < campanas.mensaje.length; i++) {
                         tarjeta = "";
                         var tamano = campanas.mensaje[i].tam_size;
-                        if(tamano != 0 && tamano != null && tamano != "" && tamano != "0"){  
+                        if (tamano != 0 && tamano != null && tamano != "" && tamano != "0") {
                             $("#result").html("Buscando Publicaciones, espere un momento.....");
-                            if (campanas.mensaje[i].cam_descri.length > 120){
-                                var descripcion = campanas.mensaje[i].cam_descri.substring(0,120) + "...";
-                            }else{
+                            if (campanas.mensaje[i].cam_descri.length > 120) {
+                                var descripcion = campanas.mensaje[i].cam_descri.substring(0, 120) + "...";
+                            } else {
                                 var descripcion = campanas.mensaje[i].cam_descri;
                             }
                             var tipo = "";
@@ -166,66 +161,65 @@ PRECategoria.prototype.ConsultarCamp = function(mipymes){
                             var facebook = "";
                             var precio = "";
                             tipo = objeto.PRECategoria.obtenerImagenTipoCampana(campanas.mensaje[i].cam_tipo);
-                            if(campanas.mensaje[i].pym_pertwi != "" && campanas.mensaje[i].pym_pertwi != "@"){
-                                twitter = '<a class="icon-twitter-circled" target="_black" href="http://www.twitter.com/'+campanas.mensaje[i].pym_pertwi+'"></a>';
+                            if (campanas.mensaje[i].pym_pertwi != "" && campanas.mensaje[i].pym_pertwi != "@") {
+                                twitter = '<a class="icon-twitter-circled" target="_black" href="http://www.twitter.com/' + campanas.mensaje[i].pym_pertwi + '"></a>';
                             }
-                            if(campanas.mensaje[i].pym_pgfbid != ""){
-                                facebook= '<a class="icon-facebook-circled" target="_black" href="http://www.facebook.com/'+campanas.mensaje[i].pym_pgfbid+'"></a>';
+                            if (campanas.mensaje[i].pym_pgfbid != "") {
+                                facebook = '<a class="icon-facebook-circled" target="_black" href="http://www.facebook.com/' + campanas.mensaje[i].pym_pgfbid + '"></a>';
                             }
-                            if(campanas.mensaje[i].cam_costo != ""){
-                                precio = '<div class="price">$'+campanas.mensaje[i].cam_costo+'</div>';
+                            if (campanas.mensaje[i].cam_costo != "") {
+                                precio = '<div class="price">$' + campanas.mensaje[i].cam_costo + '</div>';
                             }
-                            tarjeta ='<div class="item col-lg-6 col-md-6 col-sm-5 col-xs-10"   onmouseover="localizar('+campanas.mensaje[i].sed_x+','+campanas.mensaje[i].sed_y+')"><div class="image"><div class="icon"><img src="http://localhost:8080/ofertaquequieres/wp-content/themes/laofertaquequieres/images/'+tipo+'" alt=""></div><img class="carga-imagen" id="'+campanas.mensaje[i].cam_codigo+'" src="http://localhost:8080/ofertaquequieres/wp-content/themes/laofertaquequieres/images/cam_loading.gif" alt=""><div onclick="detail(' + i + ')" class="over icon-ver"></div></div><div class="info"><h2>'+campanas.mensaje[i].cam_nombre+'</h2><p>'+descripcion+'</p><a href="http://localhost:8080/ofertaquequieres/negocio/?mipyme='+campanas.mensaje[i].pym_codigo+'&coor='+campanas.mensaje[i].sed_x+','+campanas.mensaje[i].sed_y+'" class="icon-empresa">Ver Empresa</a>'+precio+'<div class="col-lg-8 col-md-8 col-xs-8 col-sm-8"><img class="logoMarca" src="http://localhost:8080/ofertaquequieres/wp-content/themes/laofertaquequieres/images/logo.png" alt=""></div><div class="col-lg-4 col-md-4 col-xs-4 col-sm-4">'+facebook+twitter+'</div></div>';
-                             $("#contCompa").append(tarjeta);
-                             objeto.PRECategoria.cargarImagenCampana(campanas.mensaje[i].cam_codigo, campanas.mensaje[i].archivo_oid, "img-promo");
-                        }else{
-                             if (campanas.mensaje[i].cam_descri.length > 120){
-                                        var descripcion = campanas.mensaje[i].cam_descri.substring(0,120) + "...";
-                                    }else{
-                                        var descripcion = campanas.mensaje[i].cam_descri;
-                                    }
+                            tarjeta = '<div class="item col-lg-6 col-md-6 col-sm-5 col-xs-10"   onmouseover="localizar(' + campanas.mensaje[i].sed_x + ',' + campanas.mensaje[i].sed_y + ')"><div class="image"><div class="icon"><img src="http://localhost:8080/ofertaquequieres/wp-content/themes/laofertaquequieres/images/' + tipo + '" alt=""></div><img class="carga-imagen" id="' + campanas.mensaje[i].cam_codigo + '" src="http://localhost:8080/ofertaquequieres/wp-content/themes/laofertaquequieres/images/cam_loading.gif" alt=""><div onclick="detail(' + i + ')" class="over icon-ver"></div></div><div class="info"><h2>' + campanas.mensaje[i].cam_nombre + '</h2><p>' + descripcion + '</p><a href="http://localhost:8080/ofertaquequieres/negocio/?mipyme=' + campanas.mensaje[i].pym_codigo + '&coor=' + campanas.mensaje[i].sed_x + ',' + campanas.mensaje[i].sed_y + '" class="icon-empresa">Ver Empresa</a>' + precio + '<div class="col-lg-8 col-md-8 col-xs-8 col-sm-8"><img class="logoMarca" src="http://localhost:8080/ofertaquequieres/wp-content/themes/laofertaquequieres/images/logo.png" alt=""></div><div class="col-lg-4 col-md-4 col-xs-4 col-sm-4">' + facebook + twitter + '</div></div>';
+                            $("#contCompa").append(tarjeta);
+                            objeto.PRECategoria.cargarImagenCampana(campanas.mensaje[i].cam_codigo, campanas.mensaje[i].archivo_oid, "img-promo");
+                        } else {
+                            if (campanas.mensaje[i].cam_descri.length > 120) {
+                                var descripcion = campanas.mensaje[i].cam_descri.substring(0, 120) + "...";
+                            } else {
+                                var descripcion = campanas.mensaje[i].cam_descri;
+                            }
                             var tipo = "";
                             var twitter = "";
                             var facebook = "";
                             var precio = "";
                             tipo = objeto.PRECategoria.obtenerImagenTipoCampana(campanas.mensaje[i].cam_tipo);
-                            if(campanas.mensaje[i].pym_pertwi != "" && campanas.mensaje[i].pym_pertwi != "@"){
-                                twitter = '<a class="icon-twitter-circled" target="_black" href="http://www.twitter.com/'+campanas.mensaje[i].pym_pertwi+'"></a>';
+                            if (campanas.mensaje[i].pym_pertwi != "" && campanas.mensaje[i].pym_pertwi != "@") {
+                                twitter = '<a class="icon-twitter-circled" target="_black" href="http://www.twitter.com/' + campanas.mensaje[i].pym_pertwi + '"></a>';
                             }
-                            if(campanas.mensaje[i].pym_pgfbid != ""){
-                                facebook= '<a class="icon-facebook-circled" target="_black" href="http://www.facebook.com/'+campanas.mensaje[i].pym_pgfbid+'"></a>';
+                            if (campanas.mensaje[i].pym_pgfbid != "") {
+                                facebook = '<a class="icon-facebook-circled" target="_black" href="http://www.facebook.com/' + campanas.mensaje[i].pym_pgfbid + '"></a>';
                             }
-                            if(campanas.mensaje[i].cam_costo != ""){
-                                precio = '<div class="price">$'+campanas.mensaje[i].cam_costo+'</div>';
+                            if (campanas.mensaje[i].cam_costo != "") {
+                                precio = '<div class="price">$' + campanas.mensaje[i].cam_costo + '</div>';
                             }
 
-                            tarjeta ='<div class="item col-lg-6 col-md-6 col-sm-5 col-xs-10"  onmouseover="localizar('+campanas.mensaje[i].sed_x+','+campanas.mensaje[i].sed_y+')"><div class="image"><div class="icon"><img src="http://localhost:8080/ofertaquequieres/wp-content/themes/laofertaquequieres/images/'+tipo+'" alt=""></div><img class="img-promo"  src="http://localhost:8080/ofertaquequieres/wp-content/themes/laofertaquequieres/images/img_promo.jpg" alt=""><div onclick="detail(' + i + ')" class="over icon-ver"></div></div><div class="info"><h2>'+campanas.mensaje[i].cam_nombre+'</h2><p>'+descripcion+'</p><a href="http://localhost:8080/ofertaquequieres/negocio/?mipyme='+campanas.mensaje[i].pym_codigo+'&coor='+campanas.mensaje[i].sed_x+','+campanas.mensaje[i].sed_y+'" class="icon-empresa">Ver Empresa</a>'+precio+'<div class="col-lg-8 col-md-8 col-xs-8 col-sm-8"><img class="logoMarca" src="http://localhost:8080/ofertaquequieres/wp-content/themes/laofertaquequieres/images/logo.png" alt=""></div><div class="col-lg-4 col-md-4 col-xs-4 col-sm-4">'+facebook+twitter+'</div></div>';
+                            tarjeta = '<div class="item col-lg-6 col-md-6 col-sm-5 col-xs-10"  onmouseover="localizar(' + campanas.mensaje[i].sed_x + ',' + campanas.mensaje[i].sed_y + ')"><div class="image"><div class="icon"><img src="http://localhost:8080/ofertaquequieres/wp-content/themes/laofertaquequieres/images/' + tipo + '" alt=""></div><img class="img-promo"  src="http://localhost:8080/ofertaquequieres/wp-content/themes/laofertaquequieres/images/img_promo.jpg" alt=""><div onclick="detail(' + i + ')" class="over icon-ver"></div></div><div class="info"><h2>' + campanas.mensaje[i].cam_nombre + '</h2><p>' + descripcion + '</p><a href="http://localhost:8080/ofertaquequieres/negocio/?mipyme=' + campanas.mensaje[i].pym_codigo + '&coor=' + campanas.mensaje[i].sed_x + ',' + campanas.mensaje[i].sed_y + '" class="icon-empresa">Ver Empresa</a>' + precio + '<div class="col-lg-8 col-md-8 col-xs-8 col-sm-8"><img class="logoMarca" src="http://localhost:8080/ofertaquequieres/wp-content/themes/laofertaquequieres/images/logo.png" alt=""></div><div class="col-lg-4 col-md-4 col-xs-4 col-sm-4">' + facebook + twitter + '</div></div>';
                             $("#contCompa").append(tarjeta);
-
                         }
                     }
-                }else{
+                } else {
                     $("#contCompa").html('<img class="logo-item" src="http://localhost:8080/ofertaquequieres/wp-content/themes/laofertaquequieres/images/logo.png"></img>');
-                }         
-                if(campanas.mensaje.length > 0){
-                    $("#result").html("<span class='cant-pub'>"+objeto.PRECategoria.tipcam+"</span> Cantidad públicaciones: <span class='cant-pub'>"+campanas.mensaje.length+"</span>");
-                }else{
-                    $("#result").html("<span class='cant-pub'>"+objeto.PRECategoria.tipcam+"</span> Cantidad públicaciones: <span class='cant-pub'>0</span>");
                 }
-               
+                if (campanas.mensaje.length > 0) {
+                    $("#result").html("<span class='cant-pub'>" + objeto.PRECategoria.tipcam + "</span> Cantidad públicaciones: <span class='cant-pub'>" + campanas.mensaje.length + "</span>");
+                } else {
+                    $("#result").html("<span class='cant-pub'>" + objeto.PRECategoria.tipcam + "</span> Cantidad públicaciones: <span class='cant-pub'>0</span>");
+                }
+
             }
         });
         ArrayCampanas = campanas.mensaje;
-    }else{
-        $("#result").html("No se encontraron publicaciones, de tipo ("+this.tipcam+") en el Mapa");
+    } else {
+        $("#result").html("No se encontraron publicaciones, de tipo (" + this.tipcam + ") en el Mapa");
         $("#contCompa").html('<img class="logo-item" src="http://localhost:8080/ofertaquequieres/wp-content/themes/laofertaquequieres/images/logo.png"></img>');
     }
- 
+
 }
 
 
-PRECategoria.prototype.localizar = function(x, y){    
-    //this.MapManager.localizar(this.map, x, y);    
+PRECategoria.prototype.localizar = function(x, y) {
+//this.MapManager.localizar(this.map, x, y);    
     movtarjeta();
     this.MapManager.InfoCapaOver(x, y);
 }
@@ -269,55 +263,54 @@ PRECategoria.prototype.informacionMipyme = function(codigo) {
             $('#nomest').html(infomipyme.mensaje[0].pym_nomest);
             $('#descrip').html(infomipyme.mensaje[0].pym_descri);
             $('#infcon').html(infomipyme.mensaje[0].pym_nopeco + "<br>Email: " + infomipyme.mensaje[0].pym_email + "<br>Celular:" + infomipyme.mensaje[0].pym_celula);
-
             var horarios = "";
             for (var i = 1; i < infomipyme.mensaje.length; i++) {
-                if(infomipyme.mensaje[i].hor_finman != infomipyme.mensaje[i].hor_initar){
-                    if(horarios == ""){
-                    horarios = horarios + infomipyme.mensaje[i].hor_tipo+": "+infomipyme.mensaje[i].hor_iniman+ " a "+ infomipyme.mensaje[i].hor_finman+" y "+ infomipyme.mensaje[i].hor_initar+" a "+infomipyme.mensaje[i].hor_fintar;
-                    }else{
-                        horarios = horarios + "<br>"+infomipyme.mensaje[i].hor_tipo+": "+infomipyme.mensaje[i].hor_iniman+ " a "+ infomipyme.mensaje[i].hor_finman+" y "+ infomipyme.mensaje[i].hor_initar+" a "+infomipyme.mensaje[i].hor_fintar;
+                if (infomipyme.mensaje[i].hor_finman != infomipyme.mensaje[i].hor_initar) {
+                    if (horarios == "") {
+                        horarios = horarios + infomipyme.mensaje[i].hor_tipo + ": " + infomipyme.mensaje[i].hor_iniman + " a " + infomipyme.mensaje[i].hor_finman + " y " + infomipyme.mensaje[i].hor_initar + " a " + infomipyme.mensaje[i].hor_fintar;
+                    } else {
+                        horarios = horarios + "<br>" + infomipyme.mensaje[i].hor_tipo + ": " + infomipyme.mensaje[i].hor_iniman + " a " + infomipyme.mensaje[i].hor_finman + " y " + infomipyme.mensaje[i].hor_initar + " a " + infomipyme.mensaje[i].hor_fintar;
                     }
-                }else{
-                    if(horarios == ""){
-                    horarios = horarios + infomipyme.mensaje[i].hor_tipo+": "+infomipyme.mensaje[i].hor_iniman+ " - "+infomipyme.mensaje[i].hor_fintar+ " (Trabajo continuo)";
-                    }else{
-                        horarios = horarios + "<br>"+infomipyme.mensaje[i].hor_tipo+": "+infomipyme.mensaje[i].hor_iniman+ " - "+infomipyme.mensaje[i].hor_fintar+ " (Trabajo continuo)";
+                } else {
+                    if (horarios == "") {
+                        horarios = horarios + infomipyme.mensaje[i].hor_tipo + ": " + infomipyme.mensaje[i].hor_iniman + " - " + infomipyme.mensaje[i].hor_fintar + " (Trabajo continuo)";
+                    } else {
+                        horarios = horarios + "<br>" + infomipyme.mensaje[i].hor_tipo + ": " + infomipyme.mensaje[i].hor_iniman + " - " + infomipyme.mensaje[i].hor_fintar + " (Trabajo continuo)";
                     }
                 }
-            };
+            }
+            ;
             $('#horario').html(horarios);
-
             var tamano = infomipyme.mensaje[0].size;
-            if(tamano != 0 && tamano != null && tamano != "" && tamano != "0"){
+            if (tamano != 0 && tamano != null && tamano != "" && tamano != "0") {
                 var parametros = {
-                "oid": infomipyme.mensaje[0].archivo_oid,
-                "sistema": "SIS_40"
+                    "oid": infomipyme.mensaje[0].archivo_oid,
+                    "sistema": "SIS_40"
                 };
                 $.ajax({
-                type: 'POST',
-                url: 'http://www.soyempresariodigital.com/Geomarketing/FUNOferta/ObtenerFoto',
-                data: parametros,
-                dataType: "json",
-                async: true,
-                success:function(data) {
-                    var img64 = data;
-                    $(".contentMultimedia .sliderEmpresa #imagen-negocio").attr("src","data:;base64,"+img64.mensaje);
-                    $(".contentMultimedia .sliderEmpresa #imagen-negocio").removeClass();
-                }
+                    type: 'POST',
+                    url: 'http://www.soyempresariodigital.com/Geomarketing/FUNOferta/ObtenerFoto',
+                    data: parametros,
+                    dataType: "json",
+                    async: true,
+                    success: function(data) {
+                        var img64 = data;
+                        $(".contentMultimedia .sliderEmpresa #imagen-negocio").attr("src", "data:;base64," + img64.mensaje);
+                        $(".contentMultimedia .sliderEmpresa #imagen-negocio").removeClass();
+                    }
                 });
-            }else{
-                    $(".contentMultimedia .sliderEmpresa #imagen-negocio").attr("src","http://localhost:8080/ofertaquequieres/wp-content/themes/laofertaquequieres/images/img1_sliderEmpresa.jpg");
-                    $(".contentMultimedia .sliderEmpresa #imagen-negocio").removeClass();
+            } else {
+                $(".contentMultimedia .sliderEmpresa #imagen-negocio").attr("src", "http://localhost:8080/ofertaquequieres/wp-content/themes/laofertaquequieres/images/img1_sliderEmpresa.jpg");
+                $(".contentMultimedia .sliderEmpresa #imagen-negocio").removeClass();
             }
 
-            if(infomipyme.mensaje[0].pym_pgfbid != ""){
-                $('.descriptionEmpresa .container #redes-sociales').append('<a class="icon-facebook-circled" target="_black" href="http://www.facebook.com/'+infomipyme.mensaje[0].pym_pgfbid+'"></a>');
+            if (infomipyme.mensaje[0].pym_pgfbid != "") {
+                $('.descriptionEmpresa .container #redes-sociales').append('<a class="icon-facebook-circled" target="_black" href="http://www.facebook.com/' + infomipyme.mensaje[0].pym_pgfbid + '"></a>');
             }
-            if(infomipyme.mensaje[0].pym_pertwi != "" && infomipyme.mensaje[0].pym_pertwi != "@"){
-                $('.descriptionEmpresa').find("#redes-sociales").append('<a class="icon-twitter-circled" target="_black" href="http://www.twitter.com/'+infomipyme.mensaje[0].pym_pertwi+'"></a>');
+            if (infomipyme.mensaje[0].pym_pertwi != "" && infomipyme.mensaje[0].pym_pertwi != "@") {
+                $('.descriptionEmpresa').find("#redes-sociales").append('<a class="icon-twitter-circled" target="_black" href="http://www.twitter.com/' + infomipyme.mensaje[0].pym_pertwi + '"></a>');
             }
-            
+
         }
     });
 }
@@ -337,146 +330,182 @@ function animate(element_ID, animation) {
             );
 }
 function detail(index) {
-     $('#lightbox').fadeIn('slow');
-     $('.detail .descriptionItem #redes-sociales').html("");
-     $(".detail .sliderItem .sliderOffer #detalle-imagen").attr("src","http://localhost:8080/ofertaquequieres/wp-content/themes/laofertaquequieres/images/cam_loading.gif");
-     $(".detail .sliderItem .sliderOffer #detalle-imagen").removeClass();
-     $(".detail .sliderItem .sliderOffer #detalle-imagen").addClass("carga-imagen-detalle");
-     var tipo = "";
-      switch(ArrayCampanas[index].cam_tipo)
-        {
+    $('#lightbox').fadeIn('slow');
+    $('.detail .descriptionItem #redes-sociales').html("");
+    $(".detail .sliderItem .sliderOffer #detalle-imagen").attr("src", "http://localhost:8080/ofertaquequieres/wp-content/themes/laofertaquequieres/images/cam_loading.gif");
+    $(".detail .sliderItem .sliderOffer #detalle-imagen").removeClass();
+    $(".detail .sliderItem .sliderOffer #detalle-imagen").addClass("carga-imagen-detalle");
+    var tipo = "";
+    switch (ArrayCampanas[index].cam_tipo)
+    {
         case "Oferta":
-          tipo = "http://localhost:8080/ofertaquequieres/wp-content/themes/laofertaquequieres/images/oferta.png";
-          break;
+            tipo = "http://localhost:8080/ofertaquequieres/wp-content/themes/laofertaquequieres/images/oferta.png";
+            break;
         case "Promoción":
-          tipo = "http://localhost:8080/ofertaquequieres/wp-content/themes/laofertaquequieres/images/promocion.png";
-          break;
+            tipo = "http://localhost:8080/ofertaquequieres/wp-content/themes/laofertaquequieres/images/promocion.png";
+            break;
         case "Descuento":
-          tipo = "http://localhost:8080/ofertaquequieres/wp-content/themes/laofertaquequieres/images/descuento.png";
-          break;
+            tipo = "http://localhost:8080/ofertaquequieres/wp-content/themes/laofertaquequieres/images/descuento.png";
+            break;
         case "Evento":
-          tipo = "http://localhost:8080/ofertaquequieres/wp-content/themes/laofertaquequieres/images/evento.png";
-          break;
+            tipo = "http://localhost:8080/ofertaquequieres/wp-content/themes/laofertaquequieres/images/evento.png";
+            break;
         case "Caso Exito":
-          tipo = "http://localhost:8080/ofertaquequieres/wp-content/themes/laofertaquequieres/images/casode-exito.png";
-          break;
+            tipo = "http://localhost:8080/ofertaquequieres/wp-content/themes/laofertaquequieres/images/casode-exito.png";
+            break;
         case "Información Especial":
-          tipo = "http://localhost:8080/ofertaquequieres/wp-content/themes/laofertaquequieres/images/informacion.png";
-          break;
-        };
-    $(".detail .infoItem .infoEmpresa #imagen-tipo").attr("src",tipo);
+            tipo = "http://localhost:8080/ofertaquequieres/wp-content/themes/laofertaquequieres/images/informacion.png";
+            break;
+    }
+    ;
+    $(".detail .infoItem .infoEmpresa #imagen-tipo").attr("src", tipo);
     var tamano = ArrayCampanas[index].tam_size;
-    if(tamano != 0 && tamano != null && tamano != "" && tamano != "0"){
+    if (tamano != 0 && tamano != null && tamano != "" && tamano != "0") {
         var parametros = {
-        "oid": ArrayCampanas[index].archivo_oid,
-        "sistema": "SIS_40"
+            "oid": ArrayCampanas[index].archivo_oid,
+            "sistema": "SIS_40"
         };
         $.ajax({
-        type: 'POST',
-        url: 'http://www.soyempresariodigital.com/Geomarketing/FUNOferta/ObtenerFoto',
-        data: parametros,
-        dataType: "json",
-        async: true,
-        success:function(data) {
-            var img64 = data;
-            $(".detail .sliderItem .sliderOffer #detalle-imagen").attr("src","data:;base64,"+img64.mensaje);
-            $(".detail .sliderItem .sliderOffer #detalle-imagen").removeClass();
-            $(".detail .sliderItem .sliderOffer #detalle-imagen").addClass("imagen-detalle");
-        }
+            type: 'POST',
+            url: 'http://www.soyempresariodigital.com/Geomarketing/FUNOferta/ObtenerFoto',
+            data: parametros,
+            dataType: "json",
+            async: true,
+            success: function(data) {
+                var img64 = data;
+                $(".detail .sliderItem .sliderOffer #detalle-imagen").attr("src", "data:;base64," + img64.mensaje);
+                $(".detail .sliderItem .sliderOffer #detalle-imagen").removeClass();
+                $(".detail .sliderItem .sliderOffer #detalle-imagen").addClass("imagen-detalle");
+            }
         });
-    }else{
-            $(".detail .sliderItem .sliderOffer #detalle-imagen").attr("src","http://localhost:8080/ofertaquequieres/wp-content/themes/laofertaquequieres/images/img1_detalle.jpg");
-            $(".detail .sliderItem .sliderOffer #detalle-imagen").removeClass();
-            $(".detail .sliderItem .sliderOffer #detalle-imagen").addClass("imagen-detalle");
+    } else {
+        $(".detail .sliderItem .sliderOffer #detalle-imagen").attr("src", "http://localhost:8080/ofertaquequieres/wp-content/themes/laofertaquequieres/images/img1_detalle.jpg");
+        $(".detail .sliderItem .sliderOffer #detalle-imagen").removeClass();
+        $(".detail .sliderItem .sliderOffer #detalle-imagen").addClass("imagen-detalle");
     }
-    
+
     $('.detail .infoEmpresa #fecha_ini').html(ArrayCampanas[index].cam_fehofi);
     $('.detail .infoEmpresa #fecha_fin').html(ArrayCampanas[index].cam_fehoin);
     $('.detail .infoEmpresa #nom_empresa_1').html(ArrayCampanas[index].pym_nombre);
     $('.detail .descriptionItem #nom_campana').html(ArrayCampanas[index].cam_nombre);
     $('.detail .infoEmpresa #cat_mipyme').html(ArrayCampanas[index].cam_tipo);
     $('.detail .descriptionItem #desc_campana').html(ArrayCampanas[index].cam_descri);
-    if(ArrayCampanas[index].cam_costo != ""){
-         $('.detail .descriptionItem #precio').html('<div class="price">$'+ ArrayCampanas[index].cam_costo +'</div>');
+    if (ArrayCampanas[index].cam_costo != "") {
+        $('.detail .descriptionItem #precio').html('<div class="price">$' + ArrayCampanas[index].cam_costo + '</div>');
     }
-    if(ArrayCampanas[index].pym_pertwi != "" && ArrayCampanas[index].pym_pertwi != "@"){
-        $('.detail .descriptionItem #redes-sociales').append('<a class="icon-twitter-circled" target="_black" href="http://www.twitter.com/'+ArrayCampanas[index].pym_pertwi+'"></a>');
+    if (ArrayCampanas[index].pym_pertwi != "" && ArrayCampanas[index].pym_pertwi != "@") {
+        $('.detail .descriptionItem #redes-sociales').append('<a class="icon-twitter-circled" target="_black" href="http://www.twitter.com/' + ArrayCampanas[index].pym_pertwi + '"></a>');
     }
-    if(ArrayCampanas[index].pym_pgfbid != ""){
-        $('.detail .descriptionItem #redes-sociales').append('<a class="icon-facebook-circled" target="_black" href="http://www.facebook.com/'+ArrayCampanas[index].pym_pgfbid+'"></a>');
+    if (ArrayCampanas[index].pym_pgfbid != "") {
+        $('.detail .descriptionItem #redes-sociales').append('<a class="icon-facebook-circled" target="_black" href="http://www.facebook.com/' + ArrayCampanas[index].pym_pgfbid + '"></a>');
     }
 
-    $('.detail .descriptionItem .icon-empresa').attr("href","http://localhost:8080/ofertaquequieres/negocio/?mipyme='+campanas.mensaje[i].pym_codigo+'&coor='+campanas.mensaje[i].sed_x+','+campanas.mensaje[i].sed_y+'");
-    
-  
+    $('.detail .descriptionItem .icon-empresa').attr("href", "http://localhost:8080/ofertaquequieres/negocio/?mipyme='+campanas.mensaje[i].pym_codigo+'&coor='+campanas.mensaje[i].sed_x+','+campanas.mensaje[i].sed_y+'");
 }
 
-PRECategoria.prototype.cargarImagenCampana = function(codigo,oid,clase){
-      var img64;
-      var cam_codigo = codigo;
-      var parametros = {
+PRECategoria.prototype.cargarImagenCampana = function(codigo, oid, clase) {
+    var img64;
+    var cam_codigo = codigo;
+    var parametros = {
         "oid": oid,
         "sistema": "SIS_40"
-        };
+    };
     $.ajax({
         type: 'POST',
         url: 'http://www.soyempresariodigital.com/Geomarketing/FUNOferta/ObtenerFoto',
         data: parametros,
         dataType: "json",
         async: true,
-        success:function(data) {
+        success: function(data) {
             img64 = data;
-            $("#"+cam_codigo).attr("src","data:;base64,"+img64.mensaje);
-            $("#"+cam_codigo).removeClass();
-            $("#"+cam_codigo).addClass(clase);
+            $("#" + cam_codigo).attr("src", "data:;base64," + img64.mensaje);
+            $("#" + cam_codigo).removeClass();
+            $("#" + cam_codigo).addClass(clase);
         }
     });
 }
 
-PRECategoria.prototype.obtenerImagenTipoCampana = function(tipo){
-        var imagen;
-        switch(tipo)
-        {
+PRECategoria.prototype.obtenerImagenTipoCampana = function(tipo) {
+    var imagen;
+    switch (tipo)
+    {
         case "Oferta":
-          imagen = "oferta.png";
-          break;
+            imagen = "oferta.png";
+            break;
         case "Promoción":
-          imagen = "promocion.png";
-          break;
+            imagen = "promocion.png";
+            break;
         case "Descuento":
-          imagen = "descuento.png";
-          break;
+            imagen = "descuento.png";
+            break;
         case "Evento":
-          imagen = "evento.png";
-          break;
+            imagen = "evento.png";
+            break;
         case "Caso Exito":
-          imagen = "casode-exito.png";
-          break;
+            imagen = "casode-exito.png";
+            break;
         case "Información Especial":
-          imagen = "informacion.png";
-          break;
-        }
+            imagen = "informacion.png";
+            break;
+    }
 
-        return imagen;
+    return imagen;
 }
 
-PRECategoria.prototype.buscarMipyme = function(nombre){
-    var = nombre;
+
+PRECategoria.prototype.buscarMipyme = function(nombre) {
+// alert("entre: "+nombre);
+    var buscar = nombre;
     var parametros = {
-            "sistema": "SIS_40",
-            "tabla": "v_publicaciones_campana"
-        };
-     $.ajax({
+        "sistema": "SIS_40",
+        "nombre_mipyme": buscar
+    };
+    $.ajax({
         type: 'POST',
         url: 'http://www.soyempresariodigital.com/Geomarketing/FUNOferta/BuscarMipyme',
         data: parametros,
         dataType: "json",
         async: true,
-        success:function(data) {
-            img64 = data;
-            $("#"+cam_codigo).attr("src","data:;base64,"+img64.mensaje);
-            $("#"+cam_codigo).removeClass();
-            $("#"+cam_codigo).addClass(clase);
+        success: function(data) {
+            $(".agenda-mipymes").html('');
+            console.log(data);
+            var imagen = '';
+            if (data.mensaje.length > 0) {
+                for (var i = 0; i < data.mensaje.length; i++) {
+                    switch (data.mensaje[i].pym_tipneg) {
+                        case "1":
+                            var imagen = 'http://localhost:8080/ofertaquequieres/wp-content/themes/laofertaquequieres/images/icon-alimentos.png';
+                            break;
+                        case "2":
+                            var imagen = 'http://localhost:8080/ofertaquequieres/wp-content/themes/laofertaquequieres/images/icon-saludybelleza.png';
+                            break;
+                        case "3":
+                            var imagen = 'http://localhost:8080/ofertaquequieres/wp-content/themes/laofertaquequieres/images/icon-servicios.png';
+                            break;
+                        case "4":
+                            var imagen = 'http://localhost:8080/ofertaquequieres/wp-content/themes/laofertaquequieres/images/icon-confeccion.png';
+                            break;
+                        case "5":
+                            var imagen = 'http://localhost:8080/ofertaquequieres/wp-content/themes/laofertaquequieres/images/icon-comercio.png';
+                            break;
+                        case "6":
+                            var imagen = 'http://localhost:8080/ofertaquequieres/wp-content/themes/laofertaquequieres/images/icon-cueroycalzado.png';
+                            break;
+                        case "7":
+                            var imagen = 'http://localhost:8080/ofertaquequieres/wp-content/themes/laofertaquequieres/images/icon-joyeria.png';
+                            break;
+                        case "8":
+                            var imagen = 'http://localhost:8080/ofertaquequieres/wp-content/themes/laofertaquequieres/images/icon-muebles.png';
+                            break;
+                        case "9":
+                            var imagen = 'http://localhost:8080/ofertaquequieres/wp-content/themes/laofertaquequieres/images/icon-metalmecanica.png';
+                            break;
+                    }
+                    console.log("ruta:"+imagen);
+                    var resulttarjeta = '<div class="tarjeta-pyme"><div class="tipo-negocio"><img src="'+imagen+'"></div><div class="inf-pyme"><span><h4>' + data.mensaje[i].pym_nomest + '</h4></span><span id="resultnombre">' + data.mensaje[i].pym_nopeco + '</span><span id="resultemail">' + data.mensaje[i].pym_email + '</span><span id="resultcelular">' + data.mensaje[i].pym_celula + '</span></div></div>';
+                    $(".agenda-mipymes").prepend(resulttarjeta);
+                }
+            }
         }
     });
 }

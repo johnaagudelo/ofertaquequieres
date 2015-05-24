@@ -10,6 +10,7 @@
     <![endif]-->
     <div id="agenda" class="agenda col-lg-5 col-md-6 col-sm-6 col-xs-12">
         <div class="col-lg-12 col-md-12 search buscador-mipyme">
+
             <div class="input-group">
                 <input type="text" id="palabra-clave" class="form-control" aria-label="..." placeholder="Encuentra la Mipyme." >
                 <div class="input-group-btn">
@@ -18,24 +19,6 @@
             </div><!-- /input-group -->
         </div><!-- /.col-lg-6 -->
         <div class="agenda-mipymes contentItems col-lg-12 col-md-12">
-            <div class="tarjeta-pyme">
-                <div class="tipo-negocio"><img src="<?php print IMAGES; ?>/icon-alimentos.png" alt=""></div>
-                <div class="inf-pyme">
-                    <span><h4>Nombre de la Mipyme</h4></span>
-                    <span>Nombre de Contacto</span>
-                    <span>Email</span>
-                    <span>Celular</span>
-                </div>
-            </div>
-            <div class="tarjeta-pyme">
-                <div class="tipo-negocio"><img src="<?php print IMAGES; ?>/icon-alimentos.png" alt=""></div>
-                <div class="inf-pyme">
-                    <span><h4>Nombre de la Mipyme</h4></span>
-                    <span>Nombre de Contacto</span>
-                    <span>Email</span>
-                    <span>Celular</span>
-                </div>
-            </div>
         </div>
     </div>
     <div id="header">
@@ -129,7 +112,7 @@
                     <?php endwhile; ?>
                 <?php endif; ?>
             </div>
-            
+
             <div class="links col-xs-8 col-lg-5 col-md-6 col-sm-8">
                 <a href="" class="paga"><img src="<?php print IMAGES; ?>/tufactura.png" alt=""></a>
                 <a href="" class="chec"><img src="<?php print IMAGES; ?>/chec.png" alt=""></a>
@@ -156,13 +139,13 @@
             </div>
             <div class="collapse navbar-collapse navbar-fixed-top filters" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav container" id="filtros">
-                        <li class="active" value=""><a >Todos</a></li>
-                        <li value="Oferta"><a>Ofertas</a></li>
-                        <li value="Promoción"><a >Promociones</a></li>
-                        <li value="Descuento"><a >Descuentos</a></li>
-                        <li value="Evento"><a>Eventos</a></li>
-                        <li value="Caso Exito"><a >Casos de Exito</a></li>
-                        <li value="Información Especial"><a >Información Especial</a></li> 
+                    <li class="active" value=""><a >Todos</a></li>
+                    <li value="Oferta"><a>Ofertas</a></li>
+                    <li value="Promoción"><a >Promociones</a></li>
+                    <li value="Descuento"><a >Descuentos</a></li>
+                    <li value="Evento"><a>Eventos</a></li>
+                    <li value="Caso Exito"><a >Casos de Exito</a></li>
+                    <li value="Información Especial"><a >Información Especial</a></li> 
                 </ul>
             </div>
         </div>  
@@ -173,23 +156,23 @@
                 Explora en el mapa y encontrara la oferta que quieres...
             </div> 
             <div class="col-lg-6 col-md-5 search">
-                    <div class="input-group">
-                        <input type="text" id="palabra-clave" class="form-control" aria-label="..." placeholder="Encuentra la oferta que quieres por palabra clave" >
-                        <div class="input-group-btn">
-                            <button type="button" id="buscar" class="btn btn-default">Buscar</button>
-                        </div>
-                    </div><!-- /input-group -->
+                <div class="input-group">
+                    <input type="text" id="palabra-clave" class="form-control" aria-label="..." placeholder="Encuentra la oferta que quieres por palabra clave" >
+                    <div class="input-group-btn">
+                        <button type="button" id="buscar" class="btn btn-default">Buscar</button>
+                    </div>
+                </div><!-- /input-group -->
             </div><!-- /.col-lg-6 -->
-            
+
         </div>
-      <div class="map col-lg-6 col-md-5" id="Visor-content">
-         <iframe id="iframe-visor" class="categoria" src="http://localhost:8080/ofertaquequieres/visor-oferta/" frameborder="0"></iframe>
-        <a class="ver">Ver resultados</a>
-      </div>
+        <div class="map col-lg-6 col-md-5" id="Visor-content">
+            <iframe id="iframe-visor" class="categoria" src="http://localhost:8080/ofertaquequieres/visor-oferta/" frameborder="0"></iframe>
+            <a class="ver">Ver resultados</a>
+        </div>
         <div class="contentItems col-lg-6 col-md-7 col-xs-12" >
             <a class="volver">Volver a mapa</a>
             <div id="contCompa">
-                    <img class="logo-item" src="<?php print IMAGES; ?>/logo.png"></img>
+                <img class="logo-item" src="<?php print IMAGES; ?>/logo.png"></img>
             </div>
         </div>
     </div>
