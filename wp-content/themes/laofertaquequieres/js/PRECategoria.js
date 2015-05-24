@@ -418,7 +418,7 @@ PRECategoria.prototype.cargarImagenCampana = function(codigo,oid,clase){
         "oid": oid,
         "sistema": "SIS_40"
         };
-        $.ajax({
+    $.ajax({
         type: 'POST',
         url: 'http://www.soyempresariodigital.com/Geomarketing/FUNOferta/ObtenerFoto',
         data: parametros,
@@ -458,5 +458,26 @@ PRECategoria.prototype.obtenerImagenTipoCampana = function(tipo){
         }
 
         return imagen;
+}
+
+PRECategoria.prototype.buscarMipyme = function(nombre){
+    var = nombre;
+    var parametros = {
+            "sistema": "SIS_40",
+            "tabla": "v_publicaciones_campana"
+        };
+     $.ajax({
+        type: 'POST',
+        url: 'http://www.soyempresariodigital.com/Geomarketing/FUNOferta/BuscarMipyme',
+        data: parametros,
+        dataType: "json",
+        async: true,
+        success:function(data) {
+            img64 = data;
+            $("#"+cam_codigo).attr("src","data:;base64,"+img64.mensaje);
+            $("#"+cam_codigo).removeClass();
+            $("#"+cam_codigo).addClass(clase);
+        }
+    });
 }
 
