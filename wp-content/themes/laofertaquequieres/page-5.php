@@ -8,6 +8,36 @@
     <!--[if lt IE 8]>
         <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
+    <div class="agenda col-lg-5 col-md-6 col-sm-6 col-xs-12">
+        <div class="col-lg-12 col-md-12 search">
+                    <div class="input-group">
+                        <input type="text" id="palabra-clave" class="form-control" aria-label="..." placeholder="Encuentra la Mipyme." >
+                        <div class="input-group-btn">
+                            <button type="button" id="buscar" class="btn btn-default">Buscar</button>
+                        </div>
+                    </div><!-- /input-group -->
+        </div><!-- /.col-lg-6 -->
+        <div class="agenda-mipymes contentItems col-lg-12 col-md-12">
+            <div class="tarjeta-pyme">
+                <div class="tipo-negocio"><img src="<?php print IMAGES; ?>/icon-alimentos.png" alt=""></div>
+                <div class="inf-pyme">
+                    <span><h4>Nombre de la Mipyme</h4></span>
+                    <span>Nombre de Contacto</span>
+                    <span>Email</span>
+                    <span>Celular</span>
+                </div>
+            </div>
+            <div class="tarjeta-pyme">
+                <div class="tipo-negocio"><img src="<?php print IMAGES; ?>/icon-alimentos.png" alt=""></div>
+                <div class="inf-pyme">
+                    <span><h4>Nombre de la Mipyme</h4></span>
+                    <span>Nombre de Contacto</span>
+                    <span>Email</span>
+                    <span>Celular</span>
+                </div>
+            </div>
+        </div>
+    </div>
     <div id="header">
         <div class="row">
             <div id="lightbox">
@@ -149,7 +179,7 @@
                             <button type="button" id="buscar" class="btn btn-default">Buscar</button>
                         </div>
                     </div><!-- /input-group -->
-                </div><!-- /.col-lg-6 -->
+            </div><!-- /.col-lg-6 -->
             
         </div>
       <div class="map col-lg-6 col-md-5" id="Visor-content">
