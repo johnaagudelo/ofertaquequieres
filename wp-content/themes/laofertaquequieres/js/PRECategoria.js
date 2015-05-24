@@ -479,7 +479,7 @@ PRECategoria.prototype.buscarMipyme = function(nombre) {
               console.log(data);
             if (data.mensaje.length > 0) {
                 for (var i = 0; i < data.mensaje.length; i++) {
-
+                    //campanas.mensaje[i].pym_pertwi
                 }
             }
         }
