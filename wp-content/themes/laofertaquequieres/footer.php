@@ -4,13 +4,13 @@
             <div id="lightbox-header">
                 <?php query_posts('p=72'); ?>
                 <?php while (have_posts()) : the_post(); ?>
-                <h3><?php the_title(); ?></h3>
-                <a class="closed">X</a>
-            </div><!--cierro lightbox-header-->
-            <div id="lightbox-content">
-                <p>
-                    <?php the_content(); ?>
-                </p>
+                    <h3><?php the_title(); ?></h3>
+                    <a class="closed">X</a>
+                </div><!--cierro lightbox-header-->
+                <div id="lightbox-content">
+                    <p>
+                        <?php the_content(); ?>
+                    </p>
                 <?php endwhile; ?>
             </div><!--cierro lightbox-content-->
         </div><!--cierro box-lightbox--> 
@@ -87,6 +87,12 @@
             var palabra = $("#palabra-clave").val();
             categorias.palabraClave = palabra;
             categorias.mostrarExtent();
+        });
+        $("#buscar").click(function() {
+            console.log("click buscar");
+            var nombre = $("#palabra-clave").val();
+            console.log(nombre);
+           categorias.buscarMipyme(nombre);
         });
     });
     function localizar(x, y) {
