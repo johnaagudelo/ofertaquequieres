@@ -58,7 +58,7 @@
             </div>
             <div class="categories">
                 <h2>Bienvenido a la red de ofertas más grande de la región</h2>
-                <p class="instruction">Clic en la categoría para iniciar tu búsqueda</p>
+                <p class="instruction">Click en la categoría para iniciar tu búsqueda.</p>
                 <div class="container">
                     <a href="http://localhost:8080/ofertaquequieres/alimentos/" class="category"><img src="<?php print IMAGES; ?>/icon-alimentos.png" alt=""><br><span>ALIMENTOS</span></a>
                     <a href="http://localhost:8080/ofertaquequieres/confeccion/" class="category"><img src="<?php print IMAGES; ?>/icon-confeccion.png" alt=""><br><span>TEXTIL CONFECCIÓN </span></a>

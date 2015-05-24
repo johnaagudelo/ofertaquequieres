@@ -37,10 +37,10 @@ Text Domain: laofertaquequieres
 	border: 2px solid green;
 	background-color: #fff;
 	position: absolute;
-	height: 550px;
+	height: 520px;
 	z-index: 100;
 	padding: 5px 3px;
-	top: 100px;
+	top: 90px;
 	left: -15px;
 	width: 0px;
 	-webkit-transition: all 1s ease;
@@ -50,12 +50,12 @@ Text Domain: laofertaquequieres
 }
 
 .agenda:after{
-	width: 300px;
+	width: 200px;
 	height: 30px;
 	content: "Buscar Mipyme";
 	position: absolute;
-	top: 140px;
-	right: -165px;
+	top: 100px;
+	right: -115px;
 	-ms-transform: rotate(90deg); /* IE 9 */
     -webkit-transform: rotate(90deg); /* Chrome, Safari, Opera */
     transform: rotate(90deg);
