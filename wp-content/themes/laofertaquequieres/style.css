@@ -17,42 +17,64 @@ Text Domain: laofertaquequieres
 @import url(css/laoferta.css);
 @import url(css/main.css);
 
+
 .agenda{
-	border: 1px solid red;
-	background-color: red;
+	border: 2px solid green;
+	background-color: #fff;
 	position: absolute;
 	height: 500px;
 	z-index: 100;
 	padding: 10px 5px;
 	top: 100px;
+	left: -15px;
+}
+.agenda:after{
+	width: 300px;
+	height: 30px;
+	content: "Encuentra la Mipymes que quieres";
+	position: absolute;
+	top: 140px;
+	right: -165px;
+	-ms-transform: rotate(90deg); /* IE 9 */
+    -webkit-transform: rotate(90deg); /* Chrome, Safari, Opera */
+    transform: rotate(90deg);
+    background-color: green;
+    color: #fff;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius:  10px 10px 0 0 ;
+}
+.agenda:after::hover{
+    background-color: #ccc;
+  
 }
 .agenda-mipymes{
 	height: 90%;
 	margin-top: 10px;
-	background-color: blue;
+	background-color: #fff !important;
+
 }
 .tarjeta-pyme{
-	height: 100px;
-	background-color: green;
-	width: 90%;
+	width: 95%;
 	display: block;
 	margin: 0 auto;
 	position: relative;
 	margin-top: 5px;
+	background-color: rgba(0, 0, 0, 0.1) !important;
 }
 .tipo-negocio{
 	display: inline-block;
-	height: 100%;
+	height: 120px;
 	width: 20%;
 }
 .tipo-negocio img{
-	width: 90%;
+	width: 70%;
+	margin: 20px 0 0 20px;
 }
 .inf-pyme{
 	display: inline-block;
 	height: 100%;
 	width: 80%;
-	background-color: grey;
 	position: absolute;
 	left: 20%;
 }
