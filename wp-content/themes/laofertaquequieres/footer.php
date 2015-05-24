@@ -71,6 +71,7 @@
         categorias.tipo = categoria;
         categorias.consultarMipymesCategoria();
         categorias.cargarCategoriaVisor();
+        categorias.buscarMipyme("");
         //categorias.asignarEventosVisor();
     }
     $(document).ready(function() {
@@ -88,10 +89,8 @@
             categorias.palabraClave = palabra;
             categorias.mostrarExtent();
         });
-        $("#buscar").click(function() {
-            console.log("click buscar");
+        $("#buscar-pyme").click(function() {
             var nombre = $("#palabra-clave").val();
-            console.log(nombre);
            categorias.buscarMipyme(nombre);
         });
     });

@@ -17,21 +17,42 @@ Text Domain: laofertaquequieres
 @import url(css/laoferta.css);
 @import url(css/main.css);
 
+.cargador-agenda{
+	height: 20%;
+    position: absolute;
+    left: 35%;
+    top:30%;
+}
+.contenido-agenda{
+	width: 100%;
+	overflow: hidden;
+	height: 500px
 
+}
+.buscador-mipyme{
+	width: 90%;
+	margin-left: 30px;
+}
 .agenda{
 	border: 2px solid green;
 	background-color: #fff;
 	position: absolute;
-	height: 500px;
+	height: 550px;
 	z-index: 100;
-	padding: 10px 5px;
+	padding: 5px 3px;
 	top: 100px;
 	left: -15px;
+	width: 0px;
+	-webkit-transition: all 1s ease;
 }
+.agenda:hover{
+	width: 400px;
+}
+
 .agenda:after{
 	width: 300px;
 	height: 30px;
-	content: "Encuentra la Mipymes que quieres";
+	content: "Buscar Mipyme";
 	position: absolute;
 	top: 140px;
 	right: -165px;
@@ -44,15 +65,12 @@ Text Domain: laofertaquequieres
     cursor: pointer;
     border-radius:  10px 10px 0 0 ;
 }
-.agenda:after::hover{
-    background-color: #ccc;
-  
-}
 .agenda-mipymes{
 	height: 90%;
 	margin-top: 10px;
 	background-color: #fff !important;
-
+	overflow-y: scroll;
+	overflow-x: hidden;
 }
 .tarjeta-pyme{
 	width: 95%;

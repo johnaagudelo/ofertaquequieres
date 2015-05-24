@@ -118,7 +118,7 @@ PRECategoria.prototype.ConsultarCamp = function(mipymes) {
     if (mipymes != "") {
         var campanas;
         var objeto;
-        var condicion = "pym_codigo in(" + mipymes + ")";
+        var condicion = "pym_codigo in(" + mipymes + ") and cam_fehofi > now() ";
         if (this.tipcam != "") {
             condicion = condicion + "and cam_tipo = '" + this.tipcam + "'";
         }
@@ -455,6 +455,7 @@ PRECategoria.prototype.obtenerImagenTipoCampana = function(tipo) {
 
 PRECategoria.prototype.buscarMipyme = function(nombre) {
 // alert("entre: "+nombre);
+    $(".agenda-mipymes").html('<img class="cargador-agenda" src="http://localhost:8080/ofertaquequieres/wp-content/themes/laofertaquequieres/images/cam_loading.gif" alt="">');
     var buscar = nombre;
     var parametros = {
         "sistema": "SIS_40",
@@ -501,8 +502,8 @@ PRECategoria.prototype.buscarMipyme = function(nombre) {
                             var imagen = 'http://localhost:8080/ofertaquequieres/wp-content/themes/laofertaquequieres/images/icon-metalmecanica.png';
                             break;
                     }
-                    console.log("ruta:"+imagen);
-                    var resulttarjeta = '<div class="tarjeta-pyme"><div class="tipo-negocio"><img src="'+imagen+'"></div><div class="inf-pyme"><span><h4>' + data.mensaje[i].pym_nomest + '</h4></span><span id="resultnombre">' + data.mensaje[i].pym_nopeco + '</span><span id="resultemail">' + data.mensaje[i].pym_email + '</span><span id="resultcelular">' + data.mensaje[i].pym_celula + '</span></div></div>';
+    
+                    var resulttarjeta = '<a href="http://localhost:8080/ofertaquequieres/negocio/?mipyme=' + data.mensaje[i].pym_codigo + '&coor=' + data.mensaje[i].sed_latitu + ',' + data.mensaje[i].sed_lonlat + '"><div class="tarjeta-pyme"><div class="tipo-negocio"><img src="'+imagen+'"></div><div class="inf-pyme"><span><h4>' + data.mensaje[i].pym_nomest + '</h4></span><span id="resultnombre">' + data.mensaje[i].pym_nopeco + '</span><span id="resultemail">' + data.mensaje[i].pym_email + '</span><span id="resultcelular">' + data.mensaje[i].pym_celula + '</span></div></div></a>';
                     $(".agenda-mipymes").prepend(resulttarjeta);
                 }
             }

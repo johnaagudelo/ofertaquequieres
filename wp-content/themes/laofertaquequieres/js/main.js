@@ -267,37 +267,5 @@ $(document).ready(function() {
         
     });
 
-     /*$("#agenda").click(function() {
-        var hancho = $("#agenda").width();
-        alert(hancho);
-        if(hancho == 0){
-            $("#agenda").animate({
-                width: "50%"
-          }, 500);
-             $(".agenda-mipymes").animate({
-                visibility: "visible"
-          }, 500);
-             $(".buscador-mipymes").animate({
-                visibility: "visible"
-          }, 500);
-        }else{
-            $("#agenda").animate({
-                width: "0"
-          }, 500);
-             $(".buscador-mipyme").animate({
-                visibility: "hidden"
-          }, 500);
-             $(".agenda-mipymes").animate({
-                visibility: "hidden"
-          }, 500);
-        }
-        
-    });*/
-
-    $("#agenda").click(function(){
-        $("#agenda").toggle("fast");
-        $(this).toggleClass("active");
-        return false;
-    });
     
 });

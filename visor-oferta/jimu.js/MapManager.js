@@ -256,7 +256,8 @@ define(['dojo/_base/declare',
               isOperationalLayer: ""
             });
         this.map.PRECategoria.extent = this.map.extent;
-		on(this.map, "click", lang.hitch(this, this.onClickMapa));
+        this.map.PRECategoria.mostrarExtent(this.map.extent);
+		    son(this.map, "click", lang.hitch(this, this.onClickMapa));
       },
 
       _getWebsceneData: function(itemId) {
