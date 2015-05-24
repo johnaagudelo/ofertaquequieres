@@ -4,7 +4,7 @@
   Template Name: Categoria
  */
 ?>
-<body class="comercio" onload="load('Comercio');">
+<body class="comercio" onload="load('Comercio y Servicios');">
     <!--[if lt IE 8]>
         <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -168,14 +168,14 @@
         <p class="instruction">Clic en la categoría para iniciar tu búsqueda</p>
         <div class="container">
             <a href="http://localhost:8080/ofertaquequieres/alimentos/" class="category"><img src="<?php print IMAGES; ?>/icon-alimentos.png" alt=""><br><span>ALIMENTOS</span></a>
-            <a href="http://localhost:8080/ofertaquequieres/confeccion/" class="category"><img src="<?php print IMAGES; ?>/icon-confeccion.png" alt=""><br><span>CONFECCIÓN</span></a>
+            <a href="http://localhost:8080/ofertaquequieres/confeccion/" class="category"><img src="<?php print IMAGES; ?>/icon-confeccion.png" alt=""><br><span>TEXTIL CONFECCIÓN </span></a>
             <a href="http://localhost:8080/ofertaquequieres/cuero-y-calzado/" class="category"><img src="<?php print IMAGES; ?>/icon-cueroycalzado.png" alt=""><br><span>CUERO Y CALZADO</span></a>
-            <a href="http://localhost:8080/ofertaquequieres/muebles/" class="category"><img src="<?php print IMAGES; ?>/icon-muebles.png" alt=""><br><span>MUEBLES</span></a>
-            <a href="http://localhost:8080/ofertaquequieres/joyeria/" class="category"><img src="<?php print IMAGES; ?>/icon-joyeria.png" alt=""><br><span>JOYERIA</span></a>
+            <a href="http://localhost:8080/ofertaquequieres/muebles/" class="category"><img src="<?php print IMAGES; ?>/icon-muebles.png" alt=""><br><span>MADERA Y MUEBLES</span></a>
+            <a href="http://localhost:8080/ofertaquequieres/joyeria/" class="category"><img src="<?php print IMAGES; ?>/icon-joyeria.png" alt=""><br><span>JOYERIA Y ARTESANIAS</span></a>
             <a href="http://localhost:8080/ofertaquequieres/salud-y-belleza/" class="category"><img src="<?php print IMAGES; ?>/icon-saludybelleza.png" alt=""><br><span>SALUD Y BELLEZA</span></a>
-            <a href="http://localhost:8080/ofertaquequieres/servicios/" class="category"><img src="<?php print IMAGES; ?>/icon-servicios.png" alt=""><br><span>SERVICIOS</span></a>
+            <a href="http://localhost:8080/ofertaquequieres/servicios/" class="category"><img src="<?php print IMAGES; ?>/icon-servicios.png" alt=""><br><span>SERVICIOS UNIVERSITARIOS</span></a>
             <a href="http://localhost:8080/ofertaquequieres/metalmecanica/" class="category"><img src="<?php print IMAGES; ?>/icon-metalmecanica.png" alt=""><br><span>METALMECANICA</span></a>
-            <a href="http://localhost:8080/ofertaquequieres/comercio/" class="category"><img src="<?php print IMAGES; ?>/icon-comercio.png" alt=""><br><span>COMERCIO</span></a>
+            <a href="http://localhost:8080/ofertaquequieres/comercio/" class="category"><img src="<?php print IMAGES; ?>/icon-comercio.png" alt=""><br><span>COMERCIO Y SERVICIOS</span></a>
         </div>
     </div>
     <?php get_footer(); ?>
