@@ -12,7 +12,7 @@
   width: 100%;
   box-sizing: border-box;
   padding: 0 15px;
-  height: 515px;
+  height: 72px;
   position: relative;
 }
 #header .navbar-brand {
@@ -61,8 +61,8 @@
   color: #fff;
   position: absolute;
   bottom: -40px;
-  right: 150px;
-  padding: 10px 10px;
+  right: 30px;
+  padding: 10px 20px;
   cursor: pointer;
   z-index: 1;
 }
@@ -122,8 +122,17 @@
   font-weight: 700;
   display: none;
 }
-#header .slider {
-  position: absolute;
+.slider {
+  position: relative !important;
+  top: 0;
+  left: 0;
+  height: 225px !important;
+  width: 100%;
+  overflow-y: hidden;
+  z-index: 0;
+}
+.home .slider {
+  position: absolute !important;
   top: 0;
   left: 0;
   height: 100% !important;
@@ -131,23 +140,28 @@
   overflow-y: hidden;
   z-index: 0;
 }
-#header .slider ul {
+.home .slider .carousel-indicators{
+  bottom: 250px;
+}
+.slider .carousel-indicators{
+  bottom: 0;
+}
+.slider ul {
   position: relative;
-  top: 110px;
-  height: 165px;
+  height: 225px;
   list-style: none;
   z-index: 15;
   width: 100%;
 }
-#header .slider ul li {
+.slider ul li {
   width: 100%;
   height: 100%;
 }
-#header .slider ul li .container {
+.slider ul li .container {
   position: relative;
   height: 100%;
 }
-#header .slider ul li h1 {
+.slider ul li h1 {
   font-size: 55px;
   color: white;
   font-weight: 700;
@@ -155,7 +169,7 @@
   top: 35px;
   opacity: 0;
 }
-#header .slider ul li p {
+.slider ul li p {
   font-size: 18px;
   color: white;
   width: 40%;
@@ -164,53 +178,52 @@
   top: 35px;
   opacity: 0;
 }
-#header .slider ul li .image {
+.slider ul li .image {
   position: absolute;
   right: 50%;
   bottom: 0;
   opacity: 0;
 }
-#header .slider .imgSlider {
+.slider .imgSlider {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
 }
-#header .categories {
+.categories {
   height: 200px;
   background: rgba(255, 255, 255, 0.8);
   width: 100%;
   z-index: 1;
-  position: absolute;
-  top: 274px;
+  padding-top: 20px;
+  margin-top: 10px;
 }
-#header .categories .instruction {
+.categories .instruction {
   width: 100%;
   color: black;
   text-align: center;
   font-weight: 400;
   display: block;
 }
-#header .categories .category {
+.categories .category {
   float: left;
   width: 10%;
   margin: 0 0.55%;
   height: 80%;
   text-align: center;
 }
-#header .categories .category span {
+.categories .category span {
   font-size: 11px;
   font-weight: 500;
   color: black;
 }
-#header .filters {
-  position: absolute;
+.filters {
+  position: relative;
   z-index: 1;
-  top: 459px;
   width: 100%;
   background: rgba(0, 0, 0, 0.3);
 }
-#header .filters ul {
+.filters ul {
   margin: 0 auto;
   float: none;
   padding: 0;
@@ -736,6 +749,8 @@
   bottom: 0;
   background: rgba(0, 0, 0, 0);
   border-bottom: 2px solid #37762d;
+  height: 235px;
+  position: absolute;
 }
 .home #header .categories p,
 .empresa #header .categories p {
@@ -776,7 +791,7 @@
   position: relative;
   opacity: 0;
   left: 20%;
-  top: 100px;
+  top: 145px;
 }
 .home #header .slider ul li .image,
 .empresa #header .slider ul li .image {
@@ -820,8 +835,8 @@
 }
 .empresa #header .categories {
   background: none;
-  border-top: 2px solid #37762d;
   border-bottom: none;
+  top: 95px;
 }
 .empresa #header .categories p {
   color: black;
@@ -1278,6 +1293,20 @@
   #header .links {
     margin-left: 0;
     padding-right: 5px;
+    height: 69px;
+  }
+  .registro::after{
+    height: 25px;
+    font-size: 12px;
+    padding: 5px 20px;
+    bottom: -28px;
+  }
+  .home #header .categories{
+    height: 160px;
+  }
+  .categories h2{
+    font-size: 20px;
+    padding: 0 20px;
   }
   #header .links .paga {
     width: 60px;
@@ -1325,6 +1354,9 @@
   #header .slider .imgSlider {
     height: 100% !important;
     width: auto !important;
+  }
+  .home #header .slider ul{
+    top: 25px;
   }
   #header .categories {
     top: 180px;
@@ -1443,11 +1475,11 @@
     font-size: 40px;
   }
   .home #header .slider ul li p {
-    width: 90%;
-    font-size: 18px;
+    width: 100%;
+    font-size: 16px;
   }
   .home #header .slider ul li .image {
-    width: 100%;
+    width: 80%;
   }
   .home #header .slider ul li .image img {
     width: 70%;
@@ -1464,7 +1496,7 @@
     width: auto;
   }
   .home #header .slider .carousel-indicators {
-    bottom: 120px;
+    bottom: 130px;
   }
   .empresa #header {
     height: 265px;

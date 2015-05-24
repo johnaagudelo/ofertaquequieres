@@ -90,8 +90,12 @@
             categorias.mostrarExtent();
         });
         $("#buscar-pyme").click(function() {
-            var nombre = $("#palabra-clave").val();
-           categorias.buscarMipyme(nombre);
+            var nombre = $("#palabra-clave-busqueda").val();
+            categorias.buscarMipyme(nombre);
+        });
+        $("#palabra-clave-busqueda").keyup(function() {
+            var buscador = $("#palabra-clave-busqueda").val();
+            categorias.buscarMipyme(buscador);
         });
     });
     function localizar(x, y) {
