@@ -230,13 +230,6 @@ define(['dojo/_base/declare',
         this.map.PRECategoria = PRECategoria;
         this.map.PRECategoria.map = this.map;
 		this.map.PRECategoria.MapManager = this;
-		if(!this.map.PRECategoria.negocio){
-			on(this.map, "mouse-drag-end", lang.hitch(this, this.mapDrag));
-			on(this.map, "zoom-end", lang.hitch(this, this.mapDrag));
-		}else{
-			this.localizar(this.map,this.map.PRECategoria.xNegocio,this.map.PRECategoria.yNegocio);
-			this.map.PRECategoria.localizar(this.map.PRECategoria.xNegocio,this.map.PRECategoria.yNegocio);
-		}
         //this.filtroCarga();
         var filtro = this.map.PRECategoria.mipymesTipo.mensaje;
 		var url;
@@ -245,6 +238,7 @@ define(['dojo/_base/declare',
 		}else{
 		 url = "http://soyempresariodigital.com:9090/lib/funciones/FUNClienteWMS.php?mapa=C:/ms4w/Apache/htdocs/chec/map/WMSTIPONEGOCIO.map&filtro=t_mipyme.pym_codigo in ('"+this.map.PRECategoria.mipymesTipo+"')"
 		}
+    console.log(url);
         this.createLayer(this.map,"2D",
             {
               label: "Sede",
@@ -256,8 +250,15 @@ define(['dojo/_base/declare',
               isOperationalLayer: ""
             });
         this.map.PRECategoria.extent = this.map.extent;
-        this.map.PRECategoria.mostrarExtent(this.map.extent);
-		    son(this.map, "click", lang.hitch(this, this.onClickMapa));
+		    on(this.map, "click", lang.hitch(this, this.onClickMapa));
+        if(!this.map.PRECategoria.negocio){
+          on(this.map, "mouse-drag-end", lang.hitch(this, this.mapDrag));
+          on(this.map, "zoom-end", lang.hitch(this, this.mapDrag));
+          this.map.PRECategoria.mostrarExtent(this.map.extent);
+        }else{
+          this.localizar(this.map,this.map.PRECategoria.xNegocio,this.map.PRECategoria.yNegocio);
+          this.map.PRECategoria.localizar(this.map.PRECategoria.xNegocio,this.map.PRECategoria.yNegocio);
+        }
       },
 
       _getWebsceneData: function(itemId) {

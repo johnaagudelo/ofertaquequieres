@@ -34,7 +34,7 @@ Text Domain: laofertaquequieres
 	margin-left: 30px;
 }
 .agenda{
-	border: 2px solid green;
+	border: 2px solid #37762d;
 	background-color: #fff;
 	position: absolute;
 	height: 520px;
@@ -59,7 +59,7 @@ Text Domain: laofertaquequieres
 	-ms-transform: rotate(90deg); /* IE 9 */
     -webkit-transform: rotate(90deg); /* Chrome, Safari, Opera */
     transform: rotate(90deg);
-    background-color: green;
+    background-color: #37762d;
     color: #fff;
     padding: 5px 10px;
     cursor: pointer;
