@@ -258,19 +258,18 @@ $(document).ready(function() {
     });
 
      $("#btn-registro").click(function() {
-        var alto = $("#frm-refistro").height();
+        /*var alto = $("#frm-refistro").height();
         if(alto == 0){
             $("#frm-refistro").animate({
-                height: "100",
-                bottom: "-100"
+                height: "auto"
           }, 500);
         }else{
             $("#frm-refistro").animate({
-                height: "0",
-                bottom: "0"
+                height: "0"
           }, 500);
-        }
-        
+        }*/
+        $("#frm-refistro").slideToggle( "slow" );
     });
+
     
 });

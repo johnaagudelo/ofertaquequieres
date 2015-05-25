@@ -46,13 +46,15 @@
 }
 .frm-registro{
   position: absolute;
-  bottom: 0px;
+  top: 90px;
   width: 100%;
   left: 0px;
   overflow: hidden;
-  background-color: #37762d;
-  height: 0px;
+  background-color: #87a254;
+  height: 100px;
+  display: none;
 }
+
 .registro:after{
   content: "¡Registrate aqui! y recibe las mejores oferta en tu correo";
   display: inline-block;
@@ -1220,15 +1222,28 @@
   }
 }
 @media (min-width: 750px) and (max-width: 1309px) {
-  #header .search {
-    left: 34.5%;
-    top: 46px;
-    width: 64%;
+  .search {
+    top: -5px;
+    width: 100%;
+    margin-bottom: 10px;
   }
-  #header .navbar-nav > li > a {
+  .resultados{
+    width: 100%;
+    padding: 10px 5%;
+  }
+  .wp-post-image {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+  }
+  .navbar-nav > li > a {
     padding: 18px 12px;
   }
-  #header .slider .imgSlider {
+  .slider ul li h1{
+    font-size: 48px;
+  }
+  .slider .imgSlider {
     height: 100% !important;
     width: 100% !important;
   }
@@ -1288,9 +1303,9 @@
 }
 @media (max-width: 768px) {
   #header {
-    height: 305px;
+    height: 65px;
   }
-  #header .links {
+  .links {
     margin-left: 0;
     padding-right: 5px;
     height: 69px;
@@ -1300,13 +1315,28 @@
     font-size: 12px;
     padding: 5px 20px;
     bottom: -28px;
+    text-align:  center;
+    width: 100%;
+    right: 0;
   }
-  .home #header .categories{
+  .frm-registro{
+    top: 69px;
+    padding-top: 20px;
+    height: 200px;
+  }
+  .frm-registro .subscribe p{
+    font-size: 14px;
+  }
+  .home .categories{
     height: 160px;
   }
   .categories h2{
     font-size: 20px;
     padding: 0 20px;
+  }
+  #header .links{
+    padding-left: 0;
+    height: 60px;
   }
   #header .links .paga {
     width: 60px;
@@ -1350,22 +1380,27 @@
   }
   #header .texSmartphone {
     display: block;
+    top: 75px;
+    font-size: 26px;
   }
-  #header .slider .imgSlider {
+  .slider{
+    height: 55px !important;
+  }
+  .slider .imgSlider {
     height: 100% !important;
     width: auto !important;
   }
-  .home #header .slider ul{
+  .home .slider ul{
     top: 25px;
   }
-  #header .categories {
+  .categories {
     top: 180px;
     height: 125px;
   }
-  #header .categories .category img {
+  .categories .category img {
     width: 100%;
   }
-  #header .categories .category span {
+  .categories .category span {
     display: none;
   }
   .map {
