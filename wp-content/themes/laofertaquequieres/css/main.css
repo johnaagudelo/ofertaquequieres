@@ -715,13 +715,13 @@
   color: white;
   text-decoration: underline;
 }
-.home .links .social {
+#header .links .social {
   color: #37762D !important;
 }
 #social{
     float: right;
 }
-.home .links .social a:before {
+#header .links .social a:before {
   color: #37762D;
 }
 .home #header .boderTop,

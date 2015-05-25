@@ -72,10 +72,10 @@
                     <a href="" class="chec"><img src="<?php print IMAGES; ?>/chec.png" alt=""></a>
                     <div class="social">
                         Siguenos en:<br>
-                        <a href="" class="icon-facebook-circled"></a>
-                        <a href="" class="icon-twitter-circled"></a>
+                        <a href="https://www.facebook.com/pages/La-Oferta-Que-Quieres/256376717905182" target="_blank" class="icon-facebook-circled"></a>
+                        <a href="https://twitter.com/OfertaQueQuiere" target="_blank" class="icon-twitter-circled"></a>
                     </div>
-                    <a href="" class="icon-sesion">Inicia Sesión</a>
+                    <a href="http://soyempresariodigital.com/Geomarketing" target="_blank" class="icon-sesion">Inicia Sesión</a>
                 </div>
             </div>           
             <div class="texSmartphone visible-xs-*">Salud y Belleza</div>
