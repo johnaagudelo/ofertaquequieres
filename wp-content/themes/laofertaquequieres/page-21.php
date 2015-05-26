@@ -168,8 +168,8 @@
     <div class="categories">
         <p class="instruction">Clic en la categoría para iniciar tu búsqueda</p>
         <div class="container">
-            <a href="http://localhost:8080/ofertaquequieres/alimentos/" class="category"><img src="<?php print IMAGES; ?>/icon-alimentos.png" alt=""><br><span>ALIMENTOS</span></a>
-            <a href="http://localhost:8080/ofertaquequieres/confeccion/" class="category"><img src="<?php print IMAGES; ?>/icon-confeccion.png" alt=""><br><span>TEXTIL CONFECCIÓN </span></a>
+                               <a href="http://localhost:8080/ofertaquequieres/alimentos/" class="category"><img src="<?php print IMAGES; ?>/icon-alimentos.png" alt=""><br><span>ALIMENTOS Y BEBIDAS</span></a>
+                    <a href="http://localhost:8080/ofertaquequieres/confeccion/" class="category"><img src="<?php print IMAGES; ?>/icon-confeccion.png" alt=""><br><span>TEXTIL CONFECCIONES </span></a>
             <a href="http://localhost:8080/ofertaquequieres/cuero-y-calzado/" class="category"><img src="<?php print IMAGES; ?>/icon-cueroycalzado.png" alt=""><br><span>CUERO Y CALZADO</span></a>
             <a href="http://localhost:8080/ofertaquequieres/muebles/" class="category"><img src="<?php print IMAGES; ?>/icon-muebles.png" alt=""><br><span>MADERA Y MUEBLES</span></a>
             <a href="http://localhost:8080/ofertaquequieres/joyeria/" class="category"><img src="<?php print IMAGES; ?>/icon-joyeria.png" alt=""><br><span>JOYERIA Y ARTESANIAS</span></a>

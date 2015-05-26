@@ -350,10 +350,16 @@
   font-weight: 500;
   margin-top: 0;
   margin-bottom: 7px;
+  text-transform: uppercase;
+      
 }
 .item .info p {
   font-size: 11px;
   height: 65px;
+  text-transform: lowercase;
+}
+.item .info p:first-letter {
+    text-transform: uppercase;
 }
 .item .info .icon-empresa {
   color: white;
@@ -423,6 +429,15 @@
     top: 0;
     width: 100%;
     z-index: 99;
+}
+#lightbox #nom_campana{
+    text-transform: uppercase;
+}
+#lightbox #desc_campana{
+    text-transform: lowercase;
+}
+#lightbox #desc_campana:first-letter{
+    text-transform: uppercase;
 }
 #box-lightbox{
     background: white none repeat scroll 0 0;  
